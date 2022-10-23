@@ -10,7 +10,7 @@ import BaseButton from "./components/BaseButton.vue"
     LaBarge + Schirtzinger
   </h1>  
   <p class="text-center text-sm mb-4">
-    We're getting married in Scottland! (Deploy via GitHub Actions)
+    We're getting married in Scotland!
   </p>
   <BaseButton
     label="RSVP"
