@@ -1,2 +1,2 @@
-# wedding
-A custom website for our destination wedding in Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿
+# LaBarge Schirtzinger Wedding
+A destination wedding in Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿 needs a fancy website.
