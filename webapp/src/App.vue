@@ -1,21 +1,10 @@
 <script setup lang="ts">
-import BaseButton from "./components/BaseButton.vue"
+import NavigationBar from "./components/NavigationBar.vue";
 </script>
 
 <template>
-  <h3 class="text-center text-5xl mt-8">
-    🏴󠁧󠁢󠁳󠁣󠁴󠁿
-  </h3>
-  <h1 class="text-center text-xl">
-    LaBarge + Schirtzinger
-  </h1>  
-  <p class="text-center text-sm mb-4">
-    We're getting married in Scotland!
-  </p>
-  <BaseButton
-    label="RSVP"
-    class="mx-auto"
-  />
+  <NavigationBar class="absolute top-0 left-0 right-0"/>
+  <RouterView />
 </template>
 
 <style scoped>
