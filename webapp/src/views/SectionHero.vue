@@ -1,35 +1,41 @@
 <template>
-  <div class="flex items-center justify-center" @click="toggle">
+  <div class="flex items-center justify-center select-none" @click="toggle">
     <div class="z-10">
-      <h1 class="text-amber-100 text-5xl md:text-8xl">Eric + Hannah</h1>    
+      <h1 class="text-amber-100 text-5xl md:text-8xl flex items-center gap-4 md:gap-7">Eric <span class="text-4xl my-auto">+</span> Hannah</h1>    
     </div>
     <!-- Final image -->
-    <!-- <img 
+    <img 
       v-if="loaded16w && loaded200w"
       :src="photo2560w"
       @load="onLoad"
-      class="dynamic-image absolute w-screen h-screen z-0 object-cover"
-      :class="{['opacity-0']: !loadedFinal}"
-    /> -->
+      class="transition-class scale-100 absolute w-screen h-screen z-0 object-cover"
+      :class="{['!scale-110']: !loadedFinal}"
+    />
     <!-- 200w lazy -->
-    <!-- <Transition name="reveal-200w">
+    <Transition 
+      leave-active-class="transition-class"
+      leave-to-class="!opacity-0 !scale-100"
+    >
       <img
-        v-if="loaded16w && !loadedFinal" 
+        v-if="loaded16w"
+        v-show="loaded200w && !loadedFinal" 
         :src="photo200w"
         @load="onLoad"
-        class="lazy-source absolute w-screen h-screen z-0 object-cover blur-lg opacity-0"      
+        class="opacity-100 scale-105 absolute w-screen h-screen z-0 object-cover blur-md"      
       />
-    </Transition> -->
+    </Transition>
     <!-- 16w lazy -->
-    <Transition name="reveal-16w"
-      enter-active-class="transition-all duration-1000"
-      enter-from-class="!opacity-0"
+    <Transition
+      enter-active-class="transition-class"
+      enter-from-class="!opacity-0"      
+      leave-active-class="transition-class"
+      leave-to-class="!opacity-0 !scale-105"
     >
       <img
         v-show="loaded16w && !loaded200w"
         :src="photo16w"
         @load="onLoad"
-        class="opacity-100 absolute w-screen h-screen z-0 object-cover blur-lg"
+        class="opacity-100 scale-110 absolute w-screen h-screen z-0 object-cover"
       />
     </Transition>
   </div>
@@ -60,7 +66,6 @@
   }
 
   function leave16w() {
-    console.log('animated out');
     left16w.value = true
   }
 
@@ -72,4 +77,10 @@
 </script>
 
 <style scoped>
+.transition-class {
+  transition-property: opacity, transform;
+  transition-duration: 1000ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+}
 </style>
