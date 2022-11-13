@@ -1,5 +1,5 @@
 <template>
-  <nav class="flex justify-center py-2 px-4 gap-4">
+  <nav class="flex justify-center p-4 gap-4">
     <RouterLink 
       v-for="route of routes" 
       :key="route.name" 
