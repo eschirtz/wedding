@@ -1,7 +1,5 @@
 <template>
-  <div class="h-screen flex items-center justify-center">
-    <h1 class="text-white text-8xl">Eric + Hannah</h1>
-  </div> 
+  <SectionHero class="h-screen"/>
   <div id="apples" class="bg-amber-300 h-96 flex items-center justify-center">
     Apples
   </div>
@@ -17,13 +15,8 @@
 </template>
 
 <script lang="ts" setup>
-  // defineProps({
+import SectionHero from './SectionHero.vue';
 
-  // });
-
-  // defineEmits({
-
-  // });
 </script>
 <style scoped>
 
