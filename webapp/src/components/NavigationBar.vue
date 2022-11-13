@@ -1,10 +1,10 @@
 <template>
-  <nav class="flex justify-center p-4 gap-4">
+  <nav class="flex justify-center p-4 gap-5">
     <RouterLink 
       v-for="route of routes" 
       :key="route.name" 
       :to="route.to" 
-      class="text-amber-900 uppercase self-center"
+      class="text-stone-600 uppercase self-center"
     >
       {{ route.name }}
     </RouterLink>
@@ -23,22 +23,22 @@ defineProps({
 const routes = [
   {
     name: "Home",
-    to: "/"
+    to: "#home"
   },
   {
-    name: "Apples",
+    name: "About",
     to: "#apples"
   },
   {
-    name: "Oranges",
+    name: "Dates",
     to: "#oranges"
   },
   {
-    name: "Bananas",
+    name: "Accomodation",
     to: "#bananas"
   },
   {
-    name: "Peaches",
+    name: "FAQ",
     to: "#peaches"
   },
 

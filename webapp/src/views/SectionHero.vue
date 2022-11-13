@@ -1,7 +1,7 @@
 <template>
-  <div class="flex items-center justify-center select-none" @click="toggle">
+  <div class="noise flex items-center justify-center select-none" @click="toggle">
     <div class="z-10">
-      <h1 class="text-amber-100 text-5xl md:text-8xl flex items-center gap-4 md:gap-7">Eric <span class="text-4xl my-auto">+</span> Hannah</h1>    
+      <h1 class="text-transparent bg-clip-text bg-gradient-to-b from-amber-50 to-amber-100 text-5xl md:text-8xl flex items-center gap-4 md:gap-7">Eric <span class="text-4xl my-auto">+</span> Hannah</h1>    
     </div>
     <!-- Final image -->
     <img 
@@ -79,8 +79,7 @@
 <style scoped>
 .transition-class {
   transition-property: opacity, transform;
-  transition-duration: 1000ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
+  transition-duration: 1s;
+  transition-timing-function: cubic-bezier(.07,.31,.15,1);
 }
 </style>

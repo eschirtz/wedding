@@ -1,5 +1,5 @@
 <template>
-  <SectionHero class="h-screen"/>
+  <SectionHero id="home" class="h-screen"/>
   <div id="apples" class="bg-amber-300 h-96 flex items-center justify-center">
     Apples
   </div>
