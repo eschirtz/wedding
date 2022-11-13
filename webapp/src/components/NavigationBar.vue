@@ -1,48 +1,33 @@
 <template>
-  <nav class="flex justify-center p-4 gap-5">
+  <nav class="flex justify-center items-center p-4 gap-5">
     <RouterLink 
       v-for="route of routes" 
       :key="route.name" 
       :to="route.to" 
-      class="text-stone-600 uppercase self-center"
+      class="text-stone-600 uppercase self-center hidden md:block"
     >
       {{ route.name }}
-    </RouterLink>
-    <div class="grow"></div>
-    <BaseButton v-if="!user" label="RSVP" />
+    </RouterLink>    
+    <Icon icon="mdi-light:menu" class="block md:hidden" @click="$emit('toggle-menu')" />
+    <div class="grow" />
+    <BaseButton v-if="!user" label="RSVP" />    
   </nav>
 </template>
 
 <script lang="ts" setup>
 import BaseButton from "@/components/BaseButton.vue"
+import Icon from "@/components/Icon.vue"
+import { RouteLocationRaw } from "vue-router";
 
 defineProps({
+  routes: Array as () => { name: string, to: RouteLocationRaw }[],
   user: Object
 });
 
-const routes = [
-  {
-    name: "Home",
-    to: "#home"
-  },
-  {
-    name: "About",
-    to: "#apples"
-  },
-  {
-    name: "Dates",
-    to: "#oranges"
-  },
-  {
-    name: "Accomodation",
-    to: "#bananas"
-  },
-  {
-    name: "FAQ",
-    to: "#peaches"
-  },
+defineEmits<{
+  (e:'toggle-menu'):  void
+}>();
 
-]
 </script>
 
 <style scoped>
