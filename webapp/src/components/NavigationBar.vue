@@ -4,11 +4,11 @@
       v-for="route of routes" 
       :key="route.name" 
       :to="route.to" 
-      class="text-stone-600 uppercase self-center hidden md:block"
+      class="text-stone-300 font-sans text-lg self-center hidden md:block"
     >
       {{ route.name }}
     </RouterLink>    
-    <Icon icon="mdi-light:menu" class="block md:hidden" @click="$emit('toggle-menu')" />
+    <Icon icon="mdi-light:menu" class="block md:hidden text-stone-500" @click="$emit('toggle-menu')" />
     <div class="grow" />
     <BaseButton v-if="!user" label="RSVP" />    
   </nav>

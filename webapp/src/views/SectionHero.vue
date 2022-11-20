@@ -1,8 +1,9 @@
 <template>
-  <div class="flex items-center justify-center select-none overflow-hidden">
-    <div class="z-10 text-center flex flex-col items-center p-12">
+  <div class="relative select-none overflow-hidden light-fade">
+    <div class="z-10 text-center absolute left-0 right-0 flex flex-col items-center justify-center pt-32">
       <!-- <h1 class=" text-transparent bg-clip-text bg-gradient-to-b from-amber-50 to-amber-100 text-5xl md:text-8xl flex items-center gap-4 md:gap-7">Eric <span class="text-4xl my-auto">+</span> Hannah</h1>     -->
-      <h5 class="text-transparent bg-clip-text bg-gradient-to-b from-amber-50 to-amber-100 text-2xl md:text-4xl animate-in">You are cordially invited to our destination wedding.</h5>
+      <h1 class="animate-in font-display text-stone-800 text-6xl md:text-8xl mb-2">Eric + Hannah</h1>
+      <p class="animate-in font-sans text-xs md:text-base">April 19th-22nd, 2024 | Edinburgh, Scotland</p>
     </div>
     <!-- Final image -->
     <img 
@@ -43,16 +44,16 @@
 </template>
 
 <script lang="ts" setup>import { ref } from 'vue';
-
+// const bucketURL = "https://firebasestorage.googleapis.com/v0/b/eric-and-hannah.appspot.com/o/"
   const bucketURL = 'https://storage.googleapis.com/eric-and-hannah.appspot.com/';
 
-  const photoBaseURL = 'page-az/IMG_3979';  
+  const photoBaseURL = 'back-to-back/8993';  
 
-  const photo2560w = bucketURL + photoBaseURL + "_2560x2560.jpeg";
-  const photo1280w = bucketURL + photoBaseURL + "_1280x1280.jpeg";
-  const photo600w = bucketURL + photoBaseURL + "_600x600.jpeg";
-  const photo200w = bucketURL + photoBaseURL + "_200x200.jpeg";
-  const photo16w = bucketURL + photoBaseURL + "_16x16.jpeg";
+  const photo2560w = bucketURL + photoBaseURL + "_2560x2560.jpg";
+  const photo1280w = bucketURL + photoBaseURL + "_1280x1280.jpg";
+  const photo600w = bucketURL + photoBaseURL + "_600x600.jpg";
+  const photo200w = bucketURL + photoBaseURL + "_200x200.jpg";
+  const photo16w = bucketURL + photoBaseURL + "_16x16.jpg";
 
   const loaded16w = ref(false);
   const left16w = ref(false);
@@ -73,6 +74,16 @@
 </script>
 
 <style scoped>
+.light-fade::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 270px;
+  background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);;
+}
+
 .transition-class {
   transition-property: opacity, transform;
   transition-duration: 2s;

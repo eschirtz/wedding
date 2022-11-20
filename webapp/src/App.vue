@@ -17,20 +17,16 @@ const routes = [
     to: "#home"
   },
   {
-    name: "Our Story",
-    to: "#apples"
+    name: "Our story",
+    to: "#our-story"
   },
   {
-    name: "The Wedding",
-    to: "#oranges"
-  },
-  {
-    name: "Accomodation",
-    to: "#bananas"
+    name: "The destination",
+    to: "#the-destination"
   },
   {
     name: "FAQ",
-    to: "#peaches"
+    to: "#faq"
   },
 ]
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <button class="transition-colors duration-100 pointer-events-auto bg-stone-600 hover:bg-stone-500 py-2 px-3 font-serif tracking-widest text-white shadow-md select-none">
+  <button class="text-lg font-sans text-stone-500 transition-colors duration-100 pointer-events-auto py-2 px-3 select-none border border-stone-400">
     {{ label }}
   </button>
 </template>
