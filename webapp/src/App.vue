@@ -1,6 +1,6 @@
 <template>
   <NavigationBar class="fixed top-0 left-0 right-0 z-40" @toggle-menu="menu = !menu" :routes="routes" />
-  <MobileNavigationMenu v-if="menu" class="fixed top-0 left-0 right-0 z-50" :routes="routes" @toggle-menu="menu = !menu" />
+  <MobileNavigationMenu v-if="menu" class="fixed top-0 left-0  bottom-0 right-0 z-50" :routes="routes" @toggle-menu="menu = !menu" @click-outside="menu = false"  />
   <RouterView />
 </template>
 
