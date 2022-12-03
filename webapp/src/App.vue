@@ -1,5 +1,5 @@
 <template>
-  <NavigationBar class="fixed top-0 left-0 right-0 z-40" @toggle-menu="menu = !menu" :routes="routes" />
+  <NavigationBar class="fixed top-0 left-0 right-0 z-40" @toggle-menu="menu = !menu" :routes="routes" :user="currentUser" />
   <MobileNavigationMenu v-if="menu" class="fixed top-0 left-0  bottom-0 right-0 z-50" :routes="routes" @toggle-menu="menu = !menu" @click-outside="menu = false"  />
   <RouterView />
 </template>
@@ -9,6 +9,7 @@ import { ref } from "vue";
 import NavigationBar from "@/components/NavigationBar.vue";
 import MobileNavigationMenu from '@/components/MobileNavigationMenu.vue'
 import { RouteLocationRaw } from "vue-router";
+import { currentUser } from './plugins/firebase';
 
 const menu = ref(false);
 

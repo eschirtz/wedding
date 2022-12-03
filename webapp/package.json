@@ -10,7 +10,8 @@
     "lint": "eslint 'src/**/*.{js,vue}'"
   },
   "dependencies": {
-    "firebase": "^9.12.1",
+    "firebase": "^8.10.0",
+    "firebaseui": "^4.8.0",
     "vue": "^3.2.37",
     "vue-router": "4"
   },

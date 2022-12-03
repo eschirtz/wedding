@@ -8,7 +8,7 @@
     >
       {{ route.name }}
     </RouterLink>    
-    <Icon icon="mdi-light:menu" class="block md:hidden text-stone-500" @click="$emit('toggle-menu')" />
+    <Icon icon="mdi-light:menu" class="block md:hidden text-stone-400" @click="$emit('toggle-menu')" />
     <div class="grow" />
     <BaseButton :label="user ? 'My Reservation' : 'RSVP'" to="account" />    
   </nav>

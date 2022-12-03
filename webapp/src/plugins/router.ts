@@ -1,14 +1,16 @@
 import {createRouter, createWebHistory, NavigationGuardNext, RouteLocationNormalized, RouteRecordRaw } from 'vue-router';
 import Home from '../views/Home.vue';
 import Account from '../views/Account.vue';
+import Auth from '../views/Auth.vue';
+import { currentUser } from '../plugins/firebase';
 
 function accountGuard(
   to: RouteLocationNormalized,
   from: RouteLocationNormalized,
   next: NavigationGuardNext
 ){
-  const authenticated = false;
-  if(!authenticated){
+  const authenticated = currentUser.value !== null;
+  if(!authenticated) {
     return next({ path: '/auth' })
   } else {
     return next();
@@ -17,7 +19,8 @@ function accountGuard(
 
 const routes: RouteRecordRaw[] = [
   { path: '/', component: Home },
-  { path: '/account', component: Account, beforeEnter: accountGuard }
+  { path: '/account', component: Account, beforeEnter: accountGuard },
+  { path: '/auth', component: Auth }
 ]
 
 const router = createRouter({
