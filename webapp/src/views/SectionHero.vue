@@ -81,7 +81,6 @@
   left: 0;
   right: 0;
   height: 270px;
-  background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);;
 }
 
 .transition-class {

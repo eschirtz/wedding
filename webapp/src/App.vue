@@ -8,25 +8,26 @@
 import { ref } from "vue";
 import NavigationBar from "@/components/NavigationBar.vue";
 import MobileNavigationMenu from '@/components/MobileNavigationMenu.vue'
+import { RouteLocationRaw } from "vue-router";
 
 const menu = ref(false);
 
-const routes = [
+const routes: {name: string, to: RouteLocationRaw }[] = [
   {
     name: "Home",
-    to: "#home"
+    to: { path: '/', hash: '#home' }
   },
   {
     name: "Our story",
-    to: "#our-story"
+    to: { path: '/', hash: '#our-story' }
   },
   {
     name: "The destination",
-    to: "#the-destination"
+    to: { path: '/', hash: '#destination' }
   },
   {
     name: "FAQ",
-    to: "#faq"
+    to: { path: '/', hash: '#faq' }
   },
 ]
 </script>
