@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import firebase from "firebase/app";
 import "firebase/auth";
+import "firebase/firestore";
 import { ref } from "vue";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -21,6 +22,7 @@ const firebaseConfig = {
 // Initialize Firebase
 export const app = firebase.initializeApp(firebaseConfig);
 export const auth = firebase.auth();
+export const db = firebase.firestore();
 
 export const authStateKnown = ref(false);
 export const currentUser = ref<firebase.User | null>(null);
