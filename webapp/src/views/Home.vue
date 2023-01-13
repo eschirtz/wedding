@@ -1,8 +1,7 @@
 <template>
   <SectionHero id="home" class="h-screen"/>
-  <div id="our-story" class="bg-amber-300 h-96 flex items-center justify-center">
-    Our story
-  </div>
+  <SectionOurStory id="our-story" class="h-screen"/>
+
   <div id="destination" class="bg-amber-200 h-96 flex items-center justify-center">
     Destination
   </div>
@@ -13,6 +12,7 @@
 
 <script lang="ts" setup>
 import SectionHero from './SectionHero.vue';
+import SectionOurStory from './SectionOurStory.vue';
 
 </script>
 <style scoped>

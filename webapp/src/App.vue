@@ -19,11 +19,11 @@ const routes: {name: string, to: RouteLocationRaw }[] = [
     to: { path: '/', hash: '#home' }
   },
   {
-    name: "Our story",
+    name: "The Story",
     to: { path: '/', hash: '#our-story' }
   },
   {
-    name: "The destination",
+    name: "The Destination",
     to: { path: '/', hash: '#destination' }
   },
   {
