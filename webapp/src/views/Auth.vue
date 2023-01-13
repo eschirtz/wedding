@@ -1,6 +1,11 @@
 <template>
-  <div class="view-margin">
-    <div v-show="(authStateKnown && !currentUser)"  id="firebaseui-auth-container" />
+  <div class="view-margin flex w-full h-screen">
+    <div class="grow">
+      <BaseImage src="eric-hannah-vertical.jpg" lazy-src="eric-hannah-vertical-lazy.jpg" class="w-full h-full" />
+    </div>
+    <div class="grow">
+      <div v-show="(authStateKnown && !currentUser)" id="firebaseui-auth-container" />
+    </div>
   </div>
 </template>
 
@@ -9,11 +14,12 @@ import firebase from "firebase/app";
 import * as firebaseui from "firebaseui";
 import "firebaseui/dist/firebaseui.css";
 import { onMounted, watchEffect } from "vue";
+import BaseImage from "../components/BaseImage.vue";
 import { currentUser, authStateKnown } from "../plugins/firebase";
 import router from "../plugins/router";
 
 watchEffect(() => {
-  if(currentUser.value) {
+  if (currentUser.value) {
     router.push('/account');
   }
 });
