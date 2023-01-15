@@ -1,16 +1,18 @@
 <template>
   <div @click="$emit('click-outside', $event)">
-    <div class="bg-stone-100 backdrop-blur-lg flex flex-col gap-4 p-6 items-center">      
+    <div class="bg-white flex flex-col gap-6 px-6 py-10 items-center">      
       <RouterLink 
-        v-for="route of routes" 
+        v-for="route of routes"
         :key="route.name" 
         :to="route.to" 
-        class="text-stone-600 uppercase self-center"
+        class="link text-black/50 uppercase self-center"
+        :class="{
+          'active': route.name === activeRoute        
+        }"
         @click.stop="$emit('toggle-menu')"
       >
         {{ route.name }}
       </RouterLink>    
-      <BaseButton label="RSVP" class="max-w-sm mt-4"/>
     </div>
   </div>
 </template>
@@ -21,8 +23,8 @@ import { RouteLocationRaw } from 'vue-router';
 import BaseButton from './BaseButton.vue';
 
   defineProps({
-    routes: Array as () => { name: string, to: RouteLocationRaw }[],
-    user: Object
+    routes: Array as () => { name: string, to: RouteLocationRaw }[],    
+    activeRoute: String,
   });
 
   defineEmits<{
@@ -30,6 +32,20 @@ import BaseButton from './BaseButton.vue';
     (e:'click-outside'):  void
   }>();
 </script>
-<style scoped>
 
+<style scoped>
+@media (hover:hover) {
+  .link:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+  }
+}
+.link.active {
+  cursor: default !important;
+  color: black;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
 </style>

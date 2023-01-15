@@ -1,6 +1,6 @@
 <template>
   <SectionHero id="home" class="h-screen"/>
-  <SectionOurStory id="our-story" class="h-screen"/>
+  <SectionOurStory id="the-story" class="h-screen"/>
 
   <div id="destination" class="bg-amber-200 h-96 flex items-center justify-center">
     Destination
