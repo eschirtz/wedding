@@ -90,38 +90,12 @@ onMounted(() => {
 function updateCurrentSection(section: string) {
   // @ts-ignore
   const route = routes.find((route) => route.to.hash === `#${section}`);
-  if (route) currentSection.value = route?.name;
+  if (route) {
+    currentSection.value = route?.name;
+  }
+  console.log(currentSection.value);
+  
 }
-
-onMounted(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        // Handle navigation sections
-        if (entry.isIntersecting && entry.target.tagName === 'SECTION') {
-          updateCurrentSection(entry.target.id);
-        }
-        // Handle all other intersections
-        console.log(entry.target.id, entry.intersectionRatio);
-        
-        if (entry.isIntersecting) {
-          entry.target.classList.add('intersected');
-        } else {
-          entry.target.classList.remove('intersected');
-        }
-      });
-    }, 
-    { threshold: 0.5 }
-  );
-  // Grab all navigation sections
-  document.querySelectorAll('section').forEach((section) => {
-    observer.observe(section);
-  });
-  // Grab all "observable" elements
-  document.querySelectorAll('.observable').forEach((element) => {
-    observer.observe(element);
-  });
-});
 
 </script>
 

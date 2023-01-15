@@ -13,7 +13,7 @@
     </RouterLink>    
     <Icon icon="mdi-light:menu" class="block md:hidden text-black" @click="$emit('toggle-menu')" />
     
-    <div class="grow">
+    <div class="grow pl-16">
       <h4 class="block md:hidden text-decorative font-display text-black/50 text-4xl text-center grow" v-if="showBackground">E+H</h4>
     </div>
 
