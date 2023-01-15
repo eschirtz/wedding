@@ -1,5 +1,5 @@
 <template>
-  <nav class="flex justify-center items-center px-8 py-6 gap-5 transition-colors duration-500" :class="showBackground ? ['bg-white'] : []">
+  <nav class="flex justify-center items-center px-8 py-6 gap-5 transition-colors duration-500" :class="showBackground ? ['custom-background', 'shadow'] : []">
     <RouterLink 
       v-for="route of routes" 
       :key="route.name" 
@@ -12,7 +12,11 @@
       {{ route.name }}
     </RouterLink>    
     <Icon icon="mdi-light:menu" class="block md:hidden text-black" @click="$emit('toggle-menu')" />
-    <div class="grow" />
+    
+    <div class="grow">
+      <h4 class="block md:hidden text-decorative font-display text-black/50 text-4xl text-center grow" v-if="showBackground">E+H</h4>
+    </div>
+
     <BaseButton :label="user ? 'My Reservation' : 'RSVP'" to="account" />    
   </nav>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <div @click="$emit('click-outside', $event)">
-    <div class="bg-white flex flex-col gap-6 px-6 py-10 items-center">      
+    <div class="custom-background shadow-xl flex flex-col gap-6 px-6 py-10 items-center">      
       <RouterLink 
         v-for="route of routes"
         :key="route.name" 

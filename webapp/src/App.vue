@@ -16,9 +16,9 @@
     />
   </Transition>
   <Transition
-    enter-active-class="transition-class"
+    enter-active-class="transition-class duration-500"
     enter-from-class="!opacity-0 -translate-y-6"      
-    leave-active-class="transition-class"
+    leave-active-class="transition-class duration-500"
     leave-to-class="!opacity-0 -translate-y-6"
   >
     <MobileNavigationMenu 
