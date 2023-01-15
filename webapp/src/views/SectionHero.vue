@@ -1,5 +1,5 @@
 <template>
-  <div class="relative select-none overflow-hidden light-fade">
+  <section class="relative select-none overflow-hidden light-fade">
     <div class="z-10 text-center absolute left-0 right-0 flex flex-col items-center justify-center pt-32">
       <!-- <h1 class=" text-transparent bg-clip-text bg-gradient-to-b from-amber-50 to-amber-100 text-5xl md:text-8xl flex items-center gap-4 md:gap-7">Eric <span class="text-4xl my-auto">+</span> Hannah</h1>     -->
       <h1 class="animate-in font-display text-stone-800 text-6xl md:text-8xl mb-2">Eric + Hannah</h1>
@@ -40,7 +40,7 @@
         class="opacity-100 scale-110 absolute w-screen h-screen z-0 object-cover"
       />
     </Transition>
-  </div>
+  </section>
 </template>
 
 <script lang="ts" setup>import { ref } from 'vue';

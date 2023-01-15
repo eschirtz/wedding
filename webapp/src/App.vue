@@ -11,7 +11,7 @@
       @toggle-menu="menu = !menu" 
       :routes="routes"
       :user="currentUser" 
-      active-route="Home" 
+      :active-route="currentSection"
       :show-background="scrolledPastThreshold"    
     />
   </Transition>
@@ -30,7 +30,7 @@
       @click-outside="menu = false" 
     />
   </Transition>
-  <RouterView />
+  <RouterView @update:currentSection="updateCurrentSection" />
 </template>
 
 <script setup lang="ts">
@@ -43,6 +43,7 @@ import { currentUser } from './plugins/firebase';
 const menu = ref(false);
 const showNavigationBar = ref(true);
 const scrolledPastThreshold = ref(false);
+const currentSection = ref('');
 
 const routes: { name: string, to: RouteLocationRaw }[] = [
   {
@@ -64,6 +65,7 @@ const routes: { name: string, to: RouteLocationRaw }[] = [
 ]
 
 onMounted(() => {
+  // Scrolling logic
   let lastScrollTop = 0;
   window.addEventListener('scroll', () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -80,6 +82,44 @@ onMounted(() => {
     }
     
     scrolledPastThreshold.value = scrollTop > backgroundThreshold;
+  });
+});
+
+// Intersection observer logic
+
+function updateCurrentSection(section: string) {
+  // @ts-ignore
+  const route = routes.find((route) => route.to.hash === `#${section}`);
+  if (route) currentSection.value = route?.name;
+}
+
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        // Handle navigation sections
+        if (entry.isIntersecting && entry.target.tagName === 'SECTION') {
+          updateCurrentSection(entry.target.id);
+        }
+        // Handle all other intersections
+        console.log(entry.target.id, entry.intersectionRatio);
+        
+        if (entry.isIntersecting) {
+          entry.target.classList.add('intersected');
+        } else {
+          entry.target.classList.remove('intersected');
+        }
+      });
+    }, 
+    { threshold: 0.5 }
+  );
+  // Grab all navigation sections
+  document.querySelectorAll('section').forEach((section) => {
+    observer.observe(section);
+  });
+  // Grab all "observable" elements
+  document.querySelectorAll('.observable').forEach((element) => {
+    observer.observe(element);
   });
 });
 
