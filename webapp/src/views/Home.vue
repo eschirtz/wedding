@@ -1,18 +1,20 @@
 <template>
   <SectionHero id="home" class="h-screen"/>
-  <SectionOurStory id="the-story" class="h-screen"/>
+  <section id="the-story" class="py-40">
+    <SectionHeader title="The Story"/>
+  </section>
 
-  <div id="destination" class="bg-amber-200 h-96 flex items-center justify-center">
-    Destination
-  </div>
-  <div id="faq" class="bg-amber-400 h-96 flex items-center justify-center">
-    FAQ
-  </div>
+  <section id="destination" class="py-40">
+    <SectionHeader title="The Destination"/>
+  </section>
+  <section id="faq">
+    <SectionHeader title="Questions?" class="py-40"/>
+  </section>
 </template>
 
 <script lang="ts" setup>
+import SectionHeader from '../components/SectionHeader.vue';
 import SectionHero from './SectionHero.vue';
-import SectionOurStory from './SectionOurStory.vue';
 
 </script>
 <style scoped>

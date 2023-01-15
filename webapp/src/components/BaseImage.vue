@@ -1,10 +1,10 @@
 <template>
   <div class="relative overflow-hidden">
     <img 
-      v-if="loadedLazySrc" 
+      v-if="loadFinalImage" 
       :src="src" 
       class="transition-class scale-100 absolute top-0 left-0 w-full h-full z-0 object-cover"
-      :class="{['!scale-110']: !loadedFinalImage}"
+      :class="{['!scale-110']: !loadedFinalImage && lazySrc}"
       @load="loadedFinalImage = true" 
       @error="loadedFinalImage = true" 
     />    
@@ -37,8 +37,8 @@ const props = defineProps({
 const loadedLazySrc = ref(false);
 const loadedFinalImage = ref(false);
 
-const loadFinalImage = computed(() => {
-  return !props.lazySrc ?? loadedLazySrc.value;
+const loadFinalImage = computed(() => {  
+  return !props.lazySrc || loadedLazySrc.value;
 });
 
 </script>
