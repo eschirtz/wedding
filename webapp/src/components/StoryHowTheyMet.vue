@@ -16,10 +16,10 @@ defineProps({
 
 <style scoped>
 .eric-surf {
-  transition-delay: 0.2s;
+  transition-delay: 0.25s;
   transition-property: opacity, transform;
   transition-duration: 0.4s;
-  transition-timing-function: ease-out;
+  transition-timing-function: ease-in-out;
   opacity: 0;
   transform: translate(-4px, 0px) scale(1.1);
 }
@@ -31,8 +31,8 @@ defineProps({
 
 .hannah-surf {
   transition-property: opacity, transform;
-  transition: transform 0.4s;
-  transition-timing-function: ease-out;
+  transition-duration: 0.4s;
+  transition-timing-function: ease-in-out;
   opacity: 0;
   transform: translate(4px, 0px);
 }

@@ -33,7 +33,7 @@ defineProps({
   transition-property: opacity, transform;
   transition-duration: 1s;
   transition-delay: 0.5s;
-  transition-timing-function: ease-out;
+  transition-timing-function: ease-in-out;
   transform: translateY(32px);
 }
 

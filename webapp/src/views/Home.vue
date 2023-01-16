@@ -50,8 +50,6 @@ const emit = defineEmits(['update:currentSection']);
 const visibleIds = reactive<{ [id: string]: boolean }>({});
 
 onMounted(() => {
-  const threshold = 0;
-
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -65,7 +63,7 @@ onMounted(() => {
         }
       });
     }, 
-    { threshold: [0, threshold], rootMargin: '0px 0px -120px 0px' }
+    { rootMargin: '0px 0px -120px 0px' }
   );
   // Grab all navigation sections
   document.querySelectorAll('section').forEach((section) => {    
