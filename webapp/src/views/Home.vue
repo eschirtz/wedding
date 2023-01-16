@@ -1,8 +1,11 @@
 <template>
   <SectionHero id="home" class="h-screen"/>
-  <section id="the-story" class="py-40 px-20">
+  <section id="the-story" class="py-40 px-4">
     <SectionHeader title="The Story"/>
-    <StoryChapter class="observable" />
+    <StoryChapter class="observable" title="How they met" :story="[`It was the summer of 2015 when Hannah & a few of her friends hopped on Eric's boat. She was relatively new to
+        the Lake Geneva area but Eric, born and raised on Geneva Lake, was able to show Hannah what #lakelife was all
+        about.`, `Hannah caught on fairly quickly to wake-boarding, but Eric exhibited tremendous patience while teaching Hannah
+        to wake-surf. It wasn't love at first sight, but it was the beginning of the rest of their lives.`]" />
   </section>
 
   <section id="destination" class="py-40">
