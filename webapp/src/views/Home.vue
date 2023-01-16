@@ -15,15 +15,34 @@
     </StoryChapter>
   </section>
 
-  <section id="destination" class="px-6">
+  <section id="destination" class="px-6 mb-20 lg:mb-40">
     <BaseImage src="dundas-sketch.png" class="w-full h-32 lg:h-64 mb-8 lg:mb-12" contain />
     <SectionHeader title="The Destination" class="mb-8"/>    
-    <p>
+    <p class="max-w-3xl mx-auto">
       Traveling has been a passion of Eric and Hannah's since they met; it was only fitting that they have a destination wedding. So why get married in a Scottish castle? No other reason than Hannah thought it would be cool to do.
       <br/><br/>
       Dundas Castle is located just 15 minutes from the Edinburgh airport. This three day party will take place on the beautiful grounds of Dundas, complete with tossing the highland games, pin-the-kilt on the sheep, and certainly some drinking.
     </p>
   </section>
+  <div class="grid grid-cols-6 grid-rows-2 h-screen mb-20 lg:mb-40">
+    <BaseImage class="col-span-3 lg:col-span-4" src="dundas-color.jpg" lazy-src="dundas-color-lazy.jpg" />
+    <BaseImage class="col-span-3 lg:col-span-2" src="dundas-interior.jpg" lazy-src="dundas-interior-lazy.jpg" />
+    <BaseImage class="col-span-6" src="edinburgh.jpg" lazy-src="edinburgh-lazy.jpg" />
+  </div>
+
+  <section id="accomodation" class="px-6 mb-20">
+    <SectionHeader title="Accomodations" class="mb-8"/>    
+    <p class="max-w-3xl mx-auto">
+      You'll be staying in the beautiful Dakota hotel, just a 5 min ride (or 30 min walk) from Dundas castle. With your reservation, we'll be taking care of booking your room. You'll also be in a neighborhood that has Thing one, Thing two and Thing Three. 
+      <br/><br/>
+      The castle itself sleeps 40 and those rooms will primarily be for the bridal party and immediate family.
+    </p>    
+  </section>
+  <div class="grid grid-cols-6 grid-rows-3 lg:grid-rows-2 h-screen">
+    <BaseImage class="col-span-6 lg:col-span-3" src="dakota-1.jpg" lazy-src="dakota-1-lazy.jpg" />    
+    <BaseImage class="col-span-6 lg:col-span-3 lg:row-span-2" src="bar.jpg" lazy-src="bar-lazy.jpg" />
+    <BaseImage class="col-span-6 lg:col-span-3" src="dakota-2.jpg" lazy-src="dakota-2-lazy.jpg" />
+  </div>
 
   <section id="faq">
     <SectionHeader title="Questions?" class="py-40"/>
