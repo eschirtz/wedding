@@ -1,5 +1,8 @@
 <template>
-  <div class="grid grid-rows-2 md:grid-rows-none md:grid-cols-2 gap-10 my-32 justify-items-center items-center max-w-6xl mx-auto">
+  <div 
+    class="grid grid-rows-2 md:grid-rows-none md:grid-cols-2 gap-10 my-32 justify-items-center items-center max-w-6xl mx-auto"
+    :class="[active ? 'intersected' : '']"
+  >
     <div class="flex w-full max-w-md">
       <BaseImage style="width: 100%; height: 372px" src="hannah-surf.jpg" lazy-src="hannah-surf-lazy.jpg"
         class="rounded shadow hannah-surf" />
@@ -26,15 +29,17 @@ import BaseImage from '@/components/BaseImage.vue';
 
 defineProps({
   title: String,
-  story: Array as () => string[],  
+  story: Array as () => string[],
+  active: Boolean
 });
 </script>
 
-<style>
+<style scoped>
 .eric-surf {
-  transition-delay: 0.3s;
+  transition-delay: 0.2s;
   transition-property: opacity, transform;
-  transition-duration: 0.5s;
+  transition-duration: 0.4s;
+  transition-timing-function: ease-out;
   opacity: 0;
   transform: translate(-4px, 0px) scale(1.1);
 }
@@ -46,7 +51,8 @@ defineProps({
 
 .hannah-surf {
   transition-property: opacity, transform;
-  transition: transform 1s;
+  transition: transform 0.4s;
+  transition-timing-function: ease-out;
   opacity: 0;
   transform: translate(4px, 0px);
 }
@@ -60,9 +66,9 @@ defineProps({
   opacity: 0;
   transition-property: opacity, transform;
   transition-duration: 1s;
-  transition-delay: 0.5s;
+  transition-delay: 0.3s;
   transition-timing-function: ease-out;
-  transform: translateY(16px);
+  transform: translateY(32px);
 }
 
 .intersected .writeup {
