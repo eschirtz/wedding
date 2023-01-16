@@ -92,9 +92,7 @@ function updateCurrentSection(section: string) {
   const route = routes.find((route) => route.to.hash === `#${section}`);
   if (route) {
     currentSection.value = route?.name;
-  }
-  console.log(currentSection.value);
-  
+  }  
 }
 
 </script>

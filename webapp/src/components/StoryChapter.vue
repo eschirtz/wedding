@@ -1,6 +1,6 @@
 <template>
   <div 
-    class="grid grid-rows-2 lg:grid-rows-none lg:grid-cols-2 gap-4 justify-items-center items-center max-w-6xl mx-auto"
+    class="flex flex-col lg:flex-row gap-12 justify-items-center items-center max-w-6xl mx-auto"
     :class="[active ? 'intersected' : '']"
   >
     <slot :bind="{ active: active }"></slot>
