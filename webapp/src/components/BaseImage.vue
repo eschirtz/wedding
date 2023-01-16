@@ -3,8 +3,8 @@
     <img 
       v-if="loadFinalImage" 
       :src="src" 
-      class="transition-class scale-100 absolute top-0 left-0 w-full h-full z-0 object-cover"
-      :class="{['!scale-110']: !loadedFinalImage && lazySrc}"
+      class="transition-class scale-100 absolute top-0 left-0 w-full h-full z-0"
+      :class="{ ['!scale-110']: !loadedFinalImage && lazySrc, ['object-cover']: !contain, ['object-contain']: contain }"
       @load="loadedFinalImage = true" 
       @error="loadedFinalImage = true" 
     />    
@@ -32,6 +32,7 @@ const props = defineProps({
     type: String,
     required: false,
   },
+  contain: Boolean
 });
 
 const loadedLazySrc = ref(false);

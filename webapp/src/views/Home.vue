@@ -1,6 +1,6 @@
 <template>
   <SectionHero id="home" class="h-screen"/>
-  <section id="the-story" class="py-40 px-6">
+  <section id="the-story" class="pt-40 pb-0 px-6">
     <SectionHeader title="The Story" class="mb-32 lg:mb-40"/>
     <StoryChapter
       v-for="chapter in chapters" 
@@ -15,9 +15,16 @@
     </StoryChapter>
   </section>
 
-  <section id="destination" class="py-40">
-    <SectionHeader title="The Destination"/>    
+  <section id="destination" class="px-6">
+    <BaseImage src="dundas-sketch.png" class="w-full h-32 lg:h-64 mb-8 lg:mb-12" contain />
+    <SectionHeader title="The Destination" class="mb-8"/>    
+    <p>
+      Traveling has been a passion of Eric and Hannah's since they met; it was only fitting that they have a destination wedding. So why get married in a Scottish castle? No other reason than Hannah thought it would be cool to do.
+      <br/><br/>
+      Dundas Castle is located just 15 minutes from the Edinburgh airport. This three day party will take place on the beautiful grounds of Dundas, complete with tossing the highland games, pin-the-kilt on the sheep, and certainly some drinking.
+    </p>
   </section>
+
   <section id="faq">
     <SectionHeader title="Questions?" class="py-40"/>
   </section>
@@ -30,6 +37,7 @@ import SectionHeader from '../components/SectionHeader.vue';
 import SectionHero from './SectionHero.vue';
 import StoryHowTheyMet from '../components/StoryHowTheyMet.vue';
 import StoryTheFriendship from "../components/StoryTheFriendship.vue";
+import BaseImage from '../components/BaseImage.vue';
 
 const emit = defineEmits(['update:currentSection']);
 
