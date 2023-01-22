@@ -14,7 +14,7 @@ defineProps({
 
 <style scoped>
   .tiktok-embed {
-    box-shadow: 0px 32px 16px white;    
+    box-shadow: 0px 0px 32px 16px white; 
   }
 
 </style>
