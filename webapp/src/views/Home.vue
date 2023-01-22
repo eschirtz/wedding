@@ -57,6 +57,7 @@ import SectionHero from './SectionHero.vue';
 import StoryHowTheyMet from '../components/StoryHowTheyMet.vue';
 import StoryTheFriendship from "../components/StoryTheFriendship.vue";
 import StoryTheLoveStory from "../components/StoryTheLoveStory.vue";
+import StoryTheEngagment from "../components/StoryTheEngagment.vue";
 import BaseImage from '../components/BaseImage.vue';
 
 const emit = defineEmits(['update:currentSection']);
@@ -99,7 +100,7 @@ const chapters: {id: string; component: object; title: string; story: string[]; 
       `When Eric and Hannah moved down to Phoenix, they didn't know what to expect. Would they golf everyday? Take up cactus gardening? While they didn't end up doing either of those, they did fall in love with a little place called the Roadrunner Saloon. This honky-tonk, bull-riding bar was a source of many fun Saturday nights. Eric and Hannah acquired the necessary attire and learned enough dance moves to be dangerous.`,
       `Eric decided to propose to Hannah here because he felt it embodied the idea that you love what you love, even if you don't see it coming. Just as he and Hannah didn't see each other romantically for years, they certainly couldn't have guessed they'd get engaged at a dusty bull-riding bar in the desert outside Phoenix, Arizona.`,
   ],
-    component: StoryTheFriendship
+    component: StoryTheEngagment
   }
 ]
 
