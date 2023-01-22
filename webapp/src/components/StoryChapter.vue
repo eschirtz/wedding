@@ -32,13 +32,14 @@ defineProps({
   opacity: 0;
   transition-property: opacity, transform;
   transition-duration: 1s;
-  transition-delay: 0.5s;
-  transition-timing-function: ease-in-out;
+  transition-delay: 0;
+  transition-timing-function: ease-out;
   transform: translateY(32px);
 }
 
 .intersected .writeup {
   opacity: 100%;
-  transform: translateY(0)
+  transform: translateY(0);
+  transition-delay: 0.5s;
 }
 </style>
