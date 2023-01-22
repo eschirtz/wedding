@@ -56,6 +56,7 @@ import SectionHeader from '../components/SectionHeader.vue';
 import SectionHero from './SectionHero.vue';
 import StoryHowTheyMet from '../components/StoryHowTheyMet.vue';
 import StoryTheFriendship from "../components/StoryTheFriendship.vue";
+import StoryTheLoveStory from "../components/StoryTheLoveStory.vue";
 import BaseImage from '../components/BaseImage.vue';
 
 const emit = defineEmits(['update:currentSection']);
@@ -89,7 +90,7 @@ const chapters: {id: string; component: object; title: string; story: string[]; 
       `Once they started dating, their love grew quickly. It only took Eric about a month to tell Hannah he was in love with her, and luckily she said it back. A few months later, they took a trip to Europe with their friends where they experienced new cities and cultures together.`,
       `After half a year of long distance, they decided to move in together down in Arizona where Hannah was studying. Hannah would continue vet school while Eric worked remotely for the tech startup he founded. Their relationship was battle tested by the pandemic, multiple cross country road trips and adopting another amazing, but slightly crazy, dog. To their surprise, they also became fans of two-step dancing and country music.`,
   ],
-    component: StoryTheFriendship
+    component: StoryTheLoveStory
   },
   {
     id: 'the-engagement',
