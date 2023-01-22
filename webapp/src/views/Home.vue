@@ -1,10 +1,10 @@
 <template>
   <SectionHero id="home" class="h-screen"/>
-  <section id="the-story" class="pt-40 pb-0 px-6">
+  <section id="the-story" class="pt-40 pb-0 px-16">
     <SectionHeader title="The Story" class="mb-32 lg:mb-40"/>
     <StoryChapter
       v-for="chapter in chapters" 
-      class="observable mb-32 lg:mb-40"
+      class="observable mb-64"
       :id="chapter.id"
       :active="visibleIds[chapter.id]"
       :title="chapter.title"

@@ -18,7 +18,7 @@ defineProps({
 .eric-surf {
   transition-delay: 0.1s;
   transition-property: opacity, transform;
-  transition-duration: 0.4s;
+  transition-duration: 0.3s;
   transition-timing-function: ease-in-out;
   opacity: 0;
   transform: translate(-32px, 8px) scale(1.1);
@@ -27,7 +27,7 @@ defineProps({
 .intersected .eric-surf {
   opacity: 1;
   transform: translate(-16px, 0px) rotate(5deg);
-  transition-duration: 0.8s;
+  transition-duration: 1s;
   transition-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
 }
 
@@ -42,7 +42,7 @@ defineProps({
 .intersected .hannah-surf {
   opacity: 1;
   transform: translate(0, 16px) scale(0.9) rotate(-6deg);
-  transition-duration: 0.8s;
+  transition-duration: 1s;
   transition-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
 }
 
