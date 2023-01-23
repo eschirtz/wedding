@@ -6,7 +6,7 @@
     <slot :bind="{ active: active }"></slot>
     <div class="writeup text-left">
       <h4 class="font-display text-4xl mb-6">{{ title }}</h4>
-      <p class="font-body text-base text-black/50">
+      <p class="font-body text-lg text-black/50">
         <template v-for="p in story">  
           <span>
             {{ p }}

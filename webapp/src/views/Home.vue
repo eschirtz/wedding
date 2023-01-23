@@ -31,7 +31,7 @@
     <BaseImage class="col-span-6" src="edinburgh.jpg" lazy-src="edinburgh-lazy.jpg" />
   </div>
 
-  <section id="accomodation" class="mb-32 lg:mb-64">
+  <section id="accomodation" class="px-6 mb-32 lg:mb-64">
     <SectionHeader title="Accomodations" class="mb-8"/>    
     <p class="max-w-3xl mx-auto font-body text-black/50">
       You'll be staying in the beautiful Dakota hotel, just a 5 min ride (or 30 min walk) from Dundas castle. With your reservation, we'll be taking care of booking your room. You'll also be in a neighborhood that has Thing one, Thing two and Thing Three. 

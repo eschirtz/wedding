@@ -8,7 +8,7 @@ module.exports = {
     fontFamily: {
       display: ['Euphoria Script', 'cursive'],
       sans: ['Montserrat', 'sans-serif'],
-      body: ['Pt serif', 'sans-serif'],
+      body: ['Pt serif', 'serif'],
     },
     extend: {},
   },

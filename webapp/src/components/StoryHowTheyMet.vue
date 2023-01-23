@@ -1,9 +1,9 @@
 <template>
   <div class="flex w-96 h-80 shrink-0 max-w-md relative">
-    <div class="absolute top-0 left-0">
+    <div class="absolute top-0 left-1">
       <BaseImage class="w-48 h-80 rounded shadow hannah-surf" src="hannah-surf.jpg" lazy-src="hannah-surf-lazy.jpg" />
     </div>
-    <div class="absolute top-0 -right-6">
+    <div class="absolute top-0 -right-2">
       <BaseImage class="w-52 h-80 rounded shadow eric-surf" src="eric-surf.jpg" lazy-src="eric-surf-lazy.jpg" />
     </div>
   </div>
@@ -30,7 +30,7 @@ defineProps({
 
 .intersected .eric-surf {
   opacity: 1;
-  transform: translate(-16px, 0px) rotate(5deg);
+  transform: translate(-16px, 0px) rotate(4deg);
   transition-duration: 1s;
   transition-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
 }
@@ -45,7 +45,7 @@ defineProps({
 
 .intersected .hannah-surf {
   opacity: 1;
-  transform: translate(0, 16px) scale(1) rotate(-6deg);
+  transform: translate(0, 16px) scale(1) rotate(-3deg);
   transition-duration: 1s;
   transition-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
 }
