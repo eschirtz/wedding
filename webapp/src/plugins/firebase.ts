@@ -91,7 +91,17 @@ export async function payForGuests(numberOfGuests: number) {
 function getUserPayments(uid: string) {
   db.collection("users").doc(uid).collection("payments")
     .where("status", "==", 'succeeded').onSnapshot(snap => {
-      paymentsReceived.value = snap.docs.length;
+      paymentsReceived.value = snap.docs.reduce((acc, doc) => {
+        const data = doc.data();
+        const items = data.items;
+        let quantity = 0;
+        for (const item of items) {
+          if (item.price.id === priceId.value) {
+            quantity += item.quantity;
+          }
+        }
+        return acc + quantity;        
+      }, 0);
       const paymentAmountReceived = snap.docs.reduce((acc, doc) => {
         const data = doc.data();
         return acc + data.amount_received;

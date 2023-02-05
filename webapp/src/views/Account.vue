@@ -1,35 +1,40 @@
 <template>
   <div class="view-margin">
-    <h1>Confirm your reservation</h1>
-    <p>We can’t wait to have you join us in Scotland! In order to make your experience as smooth as possible, please
-      fill out info for you and any other guests in your party.</p>
-    <hr />
-    <form v-for="(guest, count) of guests" :key="guest.id" class="flex flex-col gap-2 p-4" @submit.prevent
-      @input="updateGuestInfo($event, guest.id)">
-      <input placeholder="Name" name="name" :value="guest.data().name" />
-      <input placeholder="Email" name="email" :value="guest.data().email" />
-      <input placeholder="Notes" name="notes" :value="guest.data().notes" />
-      <p v-if="count < paymentsReceived">Confirmed!</p>
-      <BaseButton v-else label="Remove guest" @click="removeGuest(guest.id)" />
-    </form>
-    <hr />
-    <div class="flex justify-between">
-      <BaseButton v-if="unconfirmedGuests" :label="`RSVP · $${(checkoutPriceAmount / 100).toFixed(0)}`"
-        @click="onCheckout" />
-      <span v-if="checkoutLoading">Loading...</span>
-      <BaseButton label="Add Guest" @click="addGuest" />
+    <div class="text-left p-6">
+      <h1 class="text-3xl mb-2">Confirm your reservation</h1>
+      <p class="text-sm text-black/50 mb-6">We can't wait to have you join us in Scotland! In order to make your
+        experience as smooth as possible, please
+        fill out info for you and any other guests in your party.</p>
+      <Divider />
+      <template v-for="(guest, count) of guests" :key="guest.id">
+        <form @submit.prevent @input="updateGuestInfo($event, guest.id)" class="flex flex-col gap-2 py-6">
+          <input placeholder="Name" name="name" :value="guest.data().name" />
+          <input placeholder="Email" name="email" :value="guest.data().email" />
+          <input placeholder="Notes" name="notes" :value="guest.data().notes" />
+          <p v-if="count < paymentsReceived">Confirmed!</p>
+          <BaseButton v-if="!guest.data().isSelf && paymentsReceived !== guests.length" label="Remove guest" @click="removeGuest(guest.id)" />
+        </form>
+        <Divider />
+      </template>
+      <div class="flex justify-between py-6">
+        <BaseButton v-if="unconfirmedGuests" :label="`RSVP · $${(checkoutPriceAmount / 100).toFixed(0)}`"
+          @click="onCheckout" />
+        <span v-if="checkoutLoading">Loading...</span>
+        <BaseButton label="Add Guest" @click="addGuest()" />
+      </div>
+      <Divider />
+      <BaseButton label="Logout" @click="logout" class="my-6" />
     </div>
-    <hr />
-    <BaseButton label="Logout" @click="logout" />
   </div>
 </template>
 
 <script lang="ts" setup>
 import { computed, ref } from 'vue';
 import BaseButton from '../components/BaseButton.vue';
+import Divider from '../components/Divider.vue';
 import { currentUser, db, auth, payForGuests, paymentStatusKnown, paymentsReceived, priceAmount } from '../plugins/firebase';
 import router from '../plugins/router';
-import type firebase from 'firebase';
+import firebase from 'firebase/app';
 
 const quantity = ref<number>(1);
 const checkoutLoading = ref(false);
@@ -50,20 +55,22 @@ function getGuestsRef() {
   return db.collection('users').doc(user.uid).collection('guests');
 }
 
-function addSelfAsGuest() {
+function addGuest(name?: string, email?: string, isSelf?: boolean) {
   const guestsRef = getGuestsRef();
   guestsRef.add({
-    name: currentUser.value?.displayName,
-    email: currentUser.value?.email,
+    name: name ?? '',
+    email: email ?? '',
+    isSelf: isSelf ?? false,
+    timeCreated: firebase.firestore.FieldValue.serverTimestamp(),
   });
 }
 
-function addGuest() {
-  const guestsRef = getGuestsRef();
-  guestsRef.add({
-    name: '',
-    email: '',
-  });
+function addSelfAsGuest() {
+  addGuest(
+    currentUser.value?.displayName ?? undefined,
+    currentUser.value?.email ?? undefined,
+    true
+  );
 }
 
 function removeGuest(guestId: string) {
@@ -84,7 +91,7 @@ function saveGuestInfo(guestId: string, field: string, value: string) {
   const DEBOUNCE_TIME = 1000;
   // If there is already a queued update for this guest, clear it
   if (queuedGuestUpdates[guestId]) {
-    console.log('clearing timeout');    
+    console.log('clearing timeout');
     clearTimeout(queuedGuestUpdates[guestId].timeout);
   }
   queuedGuestUpdates[guestId] = {
@@ -103,7 +110,7 @@ function saveGuestInfo(guestId: string, field: string, value: string) {
 /**
  * Takes the form data and updates the guest info in the database
  */
-function updateGuestInfo(e: Event, guestId: string) {  
+function updateGuestInfo(e: Event, guestId: string) {
   const target = e.target as HTMLInputElement;
   const field = target.name;
   const value = target.value;
@@ -117,8 +124,11 @@ function getGuestsForUser() {
   }
   const guestsRef = db.collection('users').doc(user.uid).collection('guests');
   guestsRef.onSnapshot((snapshot) => {
-    guests.value = snapshot.docs;
-    console.log(guests.value);
+    guests.value = snapshot.docs.sort((a, b) => {
+      const aTime = a.data()?.timeCreated as firebase.firestore.Timestamp;
+      const bTime = b.data()?.timeCreated as firebase.firestore.Timestamp;
+      return (aTime?.toMillis() ?? Number.MAX_SAFE_INTEGER) - (bTime?.toMillis() ?? Number.MAX_SAFE_INTEGER);
+    });
     if (guests.value.length === 0) addSelfAsGuest();
   });
 }
