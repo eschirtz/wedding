@@ -4,22 +4,23 @@
     <p>We can’t wait to have you join us in Scotland! In order to make your experience as smooth as possible, please
       fill out info for you and any other guests in your party.</p>
     <hr />
-    <form v-for="(guest, count) of guests" class="flex flex-col gap-2 p-4" @submit.prevent>
-      <input placeholder="Name" :value="guest.data().name" />
-      <input placeholder="Email" :value="guest.data().email" />
-      <input placeholder="Notes" :value="''" />
+    <form v-for="(guest, count) of guests" :key="guest.id" class="flex flex-col gap-2 p-4" @submit.prevent
+      @input="updateGuestInfo($event, guest.id)">
+      <input placeholder="Name" name="name" :value="guest.data().name" />
+      <input placeholder="Email" name="email" :value="guest.data().email" />
+      <input placeholder="Notes" name="notes" :value="guest.data().notes" />
       <p v-if="count < paymentsReceived">Confirmed!</p>
-      <BaseButton label="Remove guest" @click="removeGuest(guest.id)"/>
+      <BaseButton v-else label="Remove guest" @click="removeGuest(guest.id)" />
     </form>
     <hr />
     <div class="flex justify-between">
-      <BaseButton v-if="unconfirmedGuests" :label="`RSVP · $${(checkoutPriceAmount / 100).toFixed(0)}`" @click="onCheckout" />
+      <BaseButton v-if="unconfirmedGuests" :label="`RSVP · $${(checkoutPriceAmount / 100).toFixed(0)}`"
+        @click="onCheckout" />
+      <span v-if="checkoutLoading">Loading...</span>
       <BaseButton label="Add Guest" @click="addGuest" />
     </div>
     <hr />
     <BaseButton label="Logout" @click="logout" />
-    <span v-if="checkoutLoading">Loading...</span>
-    <p>Paid for {{ paymentsReceived }} guests</p>
   </div>
 </template>
 
@@ -70,6 +71,45 @@ function removeGuest(guestId: string) {
   guestsRef.doc(guestId).delete();
 }
 
+const queuedGuestUpdates: {
+  [guestId: string]: {
+    /** The timeout handle for this update */
+    timeout: number,
+    /** The fields to update */
+    fields: { [field: string]: string },
+  }
+} = {}
+
+function saveGuestInfo(guestId: string, field: string, value: string) {
+  const DEBOUNCE_TIME = 1000;
+  // If there is already a queued update for this guest, clear it
+  if (queuedGuestUpdates[guestId]) {
+    console.log('clearing timeout');    
+    clearTimeout(queuedGuestUpdates[guestId].timeout);
+  }
+  queuedGuestUpdates[guestId] = {
+    // @ts-ignore
+    timeout: setTimeout(() => {
+      const guestsRef = getGuestsRef();
+      guestsRef.doc(guestId).update(queuedGuestUpdates[guestId].fields);
+      delete queuedGuestUpdates[guestId];
+    }, DEBOUNCE_TIME),
+    fields: {
+      [field]: value,
+    },
+  };
+}
+
+/**
+ * Takes the form data and updates the guest info in the database
+ */
+function updateGuestInfo(e: Event, guestId: string) {  
+  const target = e.target as HTMLInputElement;
+  const field = target.name;
+  const value = target.value;
+  saveGuestInfo(guestId, field, value);
+}
+
 function getGuestsForUser() {
   const user = currentUser.value;
   if (!user) {
@@ -77,7 +117,7 @@ function getGuestsForUser() {
   }
   const guestsRef = db.collection('users').doc(user.uid).collection('guests');
   guestsRef.onSnapshot((snapshot) => {
-    guests.value = snapshot.docs.sort((a, b) => b.data().email.localeCompare(a.data().email));
+    guests.value = snapshot.docs;
     console.log(guests.value);
     if (guests.value.length === 0) addSelfAsGuest();
   });
@@ -94,7 +134,7 @@ const checkoutPriceAmount = computed(() => {
 
 async function onCheckout() {
   checkoutLoading.value = true;
-  if(unconfirmedGuests.value === 0) {
+  if (unconfirmedGuests.value === 0) {
     alert('You have already confirmed your reservation!');
     checkoutLoading.value = false;
     return;
