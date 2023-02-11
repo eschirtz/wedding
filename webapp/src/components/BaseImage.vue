@@ -2,6 +2,7 @@
   <div class="relative overflow-hidden">
     <img 
       v-if="loadFinalImage" 
+      :alt="alt"
       :src="src" 
       class="transition-class scale-100 absolute top-0 left-0 w-full h-full z-0"
       :class="{ ['!scale-110']: !loadedFinalImage && lazySrc, ['object-cover']: !contain, ['object-contain']: contain }"
@@ -11,6 +12,7 @@
     <Transition leave-active-class="transition-class" leave-to-class="!opacity-0 !scale-100">
       <img 
         v-show="loadedLazySrc && !loadedFinalImage" 
+        :alt="alt"
         :src="lazySrc" 
         @load="loadedLazySrc = true"
         @error="loadedLazySrc = true" 
@@ -32,7 +34,8 @@ const props = defineProps({
     type: String,
     required: false,
   },
-  contain: Boolean
+  contain: Boolean,
+  alt: String,
 });
 
 const loadedLazySrc = ref(false);

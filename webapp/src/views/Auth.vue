@@ -1,10 +1,20 @@
 <template>
-  <div class="view-margin flex w-full h-screen">
-    <div class="grow">
-      <BaseImage src="eric-hannah-vertical.jpg" lazy-src="eric-hannah-vertical-lazy.jpg" class="w-full h-full" />
-    </div>
-    <div class="grow">
-      <div v-show="(authStateKnown && !currentUser)" id="firebaseui-auth-container" />
+  <div class="flex">
+    <BaseImage 
+      src="eric-hannah-vertical.jpg" 
+      lazy-src="eric-hannah-vertical-lazy.jpg" 
+      class="h-screen w-1/2 hidden md:block" 
+      alt="Eric and Hannah looking very cool"
+    />
+    <div class="grow view-margin p-4">
+      <h2 class="font-display text-black text-6xl mt-16 mb-4 mx-auto">
+        Sign in
+      </h2>
+      <p class="font-sans text-sm text-black/50 max-w-md mx-auto mb-8">
+        This allows us to manage your RSVP and all accommodations that we'll be booking for you.
+      </p>
+      <div v-show="(authStateKnown && !currentUser)" id="firebaseui-auth-container" class="mx-auto mb-8" />
+      <HelpChip />
     </div>
   </div>
 </template>
@@ -15,6 +25,7 @@ import * as firebaseui from "firebaseui";
 import "firebaseui/dist/firebaseui.css";
 import { onMounted, watchEffect } from "vue";
 import BaseImage from "../components/BaseImage.vue";
+import HelpChip from "../components/HelpChip.vue";
 import { currentUser, authStateKnown } from "../plugins/firebase";
 import router from "../plugins/router";
 
