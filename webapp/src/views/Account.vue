@@ -3,25 +3,25 @@
     <BaseImage 
       src="eric-hannah-vertical.jpg" 
       lazy-src="eric-hannah-vertical-lazy.jpg" 
-      class="h-screen w-1/2 hidden md:block" 
+      class="h-screen w-1/2 lg:w-1/3 hidden md:block sticky top-0" 
       alt="Eric and Hannah looking very cool"
     />
     <div class="text-left p-6 view-margin grow">
       <div class="text-center">
         <h1 class="font-display text-black mb-2 text-6xl mx-auto">Reservation</h1>
-        <p class="font-sans text-sm text-black/50 max-w-md mx-auto mb-6">In order to make your
+        <p class="font-sans text-sm text-black/50 max-w-lg mx-auto mb-6">In order to make your
           trip as smooth as possible, please fill out info for you and any other guests in your party. You can update your info at any time.
         </p>
       </div>
       <Divider />
       <template v-for="(guest, count) of guests" :key="guest.id">
-        <form @submit.prevent @input="updateGuestInfo($event, guest.id)" class="flex flex-col gap-2 py-6">
-          <input placeholder="Name" name="name" :value="guest.data().name" />
-          <input placeholder="Email" name="email" :value="guest.data().email" />
-          <input placeholder="Notes" name="notes" :value="guest.data().notes" />
-          <p v-if="count < paymentsReceived">Confirmed!</p>
-          <BaseButton v-if="!guest.data().isSelf && paymentsReceived !== guests.length" label="Remove guest" @click="removeGuest(guest.id)" />
-        </form>
+        <Guest
+          :guest="guest"
+          :confirmed="count < paymentsReceived"
+          :removable="!guest.data().isSelf && paymentsReceived !== guests.length"
+          @update="updateGuestInfo"
+          @remove="removeGuest"
+        />
         <Divider />
       </template>
       <div class="flex justify-between py-6">
@@ -41,6 +41,7 @@ import { computed, ref } from 'vue';
 import BaseButton from '../components/BaseButton.vue';
 import BaseImage from '../components/BaseImage.vue';
 import Divider from '../components/Divider.vue';
+import Guest from '../components/Guest.vue';
 import { currentUser, db, auth, payForGuests, paymentStatusKnown, paymentsReceived, priceAmount } from '../plugins/firebase';
 import router from '../plugins/router';
 import firebase from 'firebase/app';
