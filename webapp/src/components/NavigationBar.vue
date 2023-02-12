@@ -17,7 +17,7 @@
       <h4 class="block md:hidden text-decorative font-display text-black/50 text-4xl text-center grow" v-if="showBackground">E+H</h4>
     </div>
 
-    <BaseButton :label="user ? 'My Reservation' : 'RSVP'" to="account" />    
+    <BaseButton :label="user ? 'Reservation' : 'RSVP'" to="account" />    
   </nav>
 </template>
 

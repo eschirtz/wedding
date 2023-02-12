@@ -1,10 +1,18 @@
 <template>
-  <div class="view-margin">
-    <div class="text-left p-6">
-      <h1 class="text-3xl mb-2">Confirm your reservation</h1>
-      <p class="text-sm text-black/50 mb-6">We can't wait to have you join us in Scotland! In order to make your
-        experience as smooth as possible, please
-        fill out info for you and any other guests in your party.</p>
+  <div class="flex">
+    <BaseImage 
+      src="eric-hannah-vertical.jpg" 
+      lazy-src="eric-hannah-vertical-lazy.jpg" 
+      class="h-screen w-1/2 hidden md:block" 
+      alt="Eric and Hannah looking very cool"
+    />
+    <div class="text-left p-6 view-margin grow">
+      <div class="text-center">
+        <h1 class="font-display text-black mb-2 text-6xl mx-auto">Reservation</h1>
+        <p class="font-sans text-sm text-black/50 max-w-md mx-auto mb-6">In order to make your
+          trip as smooth as possible, please fill out info for you and any other guests in your party. You can update your info at any time.
+        </p>
+      </div>
       <Divider />
       <template v-for="(guest, count) of guests" :key="guest.id">
         <form @submit.prevent @input="updateGuestInfo($event, guest.id)" class="flex flex-col gap-2 py-6">
@@ -31,6 +39,7 @@
 <script lang="ts" setup>
 import { computed, ref } from 'vue';
 import BaseButton from '../components/BaseButton.vue';
+import BaseImage from '../components/BaseImage.vue';
 import Divider from '../components/Divider.vue';
 import { currentUser, db, auth, payForGuests, paymentStatusKnown, paymentsReceived, priceAmount } from '../plugins/firebase';
 import router from '../plugins/router';
