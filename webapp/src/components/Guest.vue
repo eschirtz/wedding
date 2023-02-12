@@ -1,8 +1,8 @@
 <template>
   <form @submit.prevent @input="emit('update', $event, guest.id)" class="flex flex-col gap-2 py-6">
-    <input placeholder="Name" name="name" :value="guest.data().name" />
-    <input placeholder="Email" name="email" :value="guest.data().email" />
-    <input placeholder="Notes" name="notes" :value="guest.data().notes" />
+    <TextInput label="Name" name="name" placeholder="First Last" :value="guest.data().name" class="mb-4" />
+    <TextInput label="Email" name="email" placeholder="example@email.com" :value="guest.data().email" class="mb-4" />
+    <TextInput label="Notes" name="notes" placeholder="Allergies, accessibility requirements, shared room preferences, etc..." :value="guest.data().notes" class="mb-4" />
     <p v-if="confirmed">Confirmed!</p>
     <BaseButton v-if="removable" label="Remove guest" @click="emit('remove', guest.id)" />
   </form>
@@ -12,6 +12,7 @@
 import { PropType } from 'vue';
 import firebase from 'firebase/app';
 import BaseButton from './BaseButton.vue';
+import TextInput from './TextInput.vue';
 
 defineProps({
   guest: {
