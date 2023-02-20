@@ -71,7 +71,7 @@ const chapters: {id: string; component: object; title: string; story: string[]; 
     id: 'how-they-met',
     title: 'How they met', 
     story: [`It was the summer of 2015 when Hannah & a few of her friends hopped on Eric's boat. She was relatively new to
-        the Lake Geneva area but Eric, born and raised on Geneva Lake, was able to show Hannah what #lakelife was all
+        the Lake Geneva area but Eric, raised on Geneva Lake, was able to show Hannah what #lakelife was all
         about.`, `Hannah caught on fairly quickly to wake-boarding, but Eric exhibited tremendous patience while teaching Hannah
         to wake-surf. It wasn't love at first sight, but it was the beginning of the rest of their lives.`],
     component: StoryHowTheyMet
@@ -80,7 +80,7 @@ const chapters: {id: string; component: object; title: string; story: string[]; 
     id: 'the-friendship',
     title: 'The friendship', 
     story: [
-      `Over the years, Eric and Hannah had a slow-growing friendship. They had a decent number of mutual friends, so they would frequently see each other around campus or at parties. Then towards the end of 2017, their friends decided to take a 3 week trip to Thailand. This trip was full of exploring, learning, laughing, and building friendships.`,
+      `Over the years, Eric and Hannah had a slow-growing friendship. They had several mutual friends, so they'd frequently see each other around campus or at parties. Then towards the end of 2017, their friends decided to take a 3 week trip to Thailand. This trip was full of exploring, learning, laughing, and building friendships.`,
       `In 2018, Hannah was looking for a place to live her last semester of undergrad and, as luck would have it, Eric and his roommates had an extra spot. All of a sudden, Eric and Hannah became roomies where they stayed up late talking about life and inevitably becoming very close.`,
       `It wasn't until Hannah moved out of the apartment after she graduated that Eric told her how much he cared for her. At the time, Hannah said she didn't feel the same way, but it got her thinking about how well they got along; it didn't take long before she decided she felt the same way.`,
   ],
