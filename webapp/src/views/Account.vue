@@ -1,11 +1,7 @@
 <template>
   <div class="flex">
-    <BaseImage 
-      src="eric-hannah-vertical.jpg" 
-      lazy-src="eric-hannah-vertical-lazy.jpg" 
-      class="h-screen w-1/2 lg:w-1/3 hidden md:block sticky top-0" 
-      alt="Eric and Hannah looking very cool"
-    />
+    <BaseImage src="eric-hannah-vertical.jpg" lazy-src="eric-hannah-vertical-lazy.jpg"
+      class="h-screen w-1/2 lg:w-1/3 hidden md:block sticky top-0" alt="Eric and Hannah looking very cool" />
     <div class="text-left p-6 view-margin view grow">
       <div class="text-center">
         <h1 class="font-display text-black mb-2 text-6xl mx-auto">Reservation</h1>
@@ -15,20 +11,19 @@
       </div>
       <Divider />
       <template v-for="(guest, count) of guests" :key="guest.id">
-        <Guest
-          :guest="guest"
-          :confirmed="count < paymentsReceived"
-          :removable="!guest.data().isSelf && paymentsReceived !== guests.length"
-          @update="updateGuestInfo"
-          @remove="removeGuest"
-        />
+        <Guest :guest="guest" :confirmed="count < paymentsReceived"
+          :removable="!guest.data().isSelf && paymentsReceived !== guests.length" @update="updateGuestInfo"
+          @remove="removeGuest" />
         <Divider />
       </template>
+      <div @click="addGuest()" class="py-6 px-4 flex items-center cursor-pointer">
+        <Icon icon="mdi:add" width="18px" height="18px" class="mr-4" /> Add another guest
+      </div>
+      <Divider />
       <div class="flex justify-between py-6">
         <BaseButton v-if="unconfirmedGuests" :label="`RSVP · $${(checkoutPriceAmount / 100).toFixed(0)}`"
           @click="onCheckout" />
         <span v-if="checkoutLoading">Loading...</span>
-        <BaseButton label="Add Guest" @click="addGuest()" />
       </div>
       <Divider />
       <BaseButton label="Logout" @click="logout" class="my-6" />
@@ -41,6 +36,7 @@ import { computed, ref } from 'vue';
 import BaseButton from '../components/BaseButton.vue';
 import BaseImage from '../components/BaseImage.vue';
 import Divider from '../components/Divider.vue';
+import Icon from '../components/Icon.vue';
 import Guest from '../components/Guest.vue';
 import { currentUser, db, auth, payForGuests, paymentStatusKnown, paymentsReceived, priceAmount } from '../plugins/firebase';
 import router from '../plugins/router';
