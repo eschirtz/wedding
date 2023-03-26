@@ -11,7 +11,7 @@ import { ref } from "vue";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyD4k-P-DNl7nxqAY1He1KoiyLLjr6raVUs",
-  authDomain: "eric-and-hannah.firebaseapp.com",
+  authDomain: "eric-and-hannah.web.app",
   projectId: "eric-and-hannah",
   storageBucket: "eric-and-hannah.appspot.com",
   messagingSenderId: "566555357423",
