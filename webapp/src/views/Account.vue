@@ -2,8 +2,8 @@
   <div class="flex">
     <BaseImage src="eric-hannah-vertical.jpg" lazy-src="eric-hannah-vertical-lazy.jpg"
       class="h-screen w-1/2 lg:w-1/3 hidden md:block sticky top-0" alt="Eric and Hannah looking very cool" />
-    <div class="text-left p-6 view-margin view grow">
-      <div class="text-center">
+    <div class="text-left px-0 md:px-6 py-6 view-margin view grow">
+      <div class="text-center px-4">
         <h1 class="font-display text-black mb-2 text-6xl mx-auto">Reservation</h1>
         <p class="font-sans text-sm text-black/50 max-w-lg mx-auto mb-6">In order to make your
           trip as smooth as possible, please fill out info for you and any other guests in your party.
@@ -20,7 +20,8 @@
         <Icon icon="mdi:add" width="18px" height="18px" class="mr-4" /> Add another guest
       </div>
       <Divider />
-      <div class="flex justify-between py-6">
+      <div class="flex justify-between py-6 px-4">
+
         <BaseButton v-if="unconfirmedGuests" :label="`RSVP · $${(checkoutPriceAmount / 100).toFixed(0)}`"
           @click="onCheckout" />
         <span v-if="checkoutLoading">Loading...</span>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="px-4">
     <div class="py-6 flex items-center justify-between cursor-pointer" @click.prevent="open = !open">
       <span class="flex items-center gap-2">
         <h2 class="text-lg font-bold">
