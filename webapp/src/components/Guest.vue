@@ -1,5 +1,5 @@
 <template>
-  <div class="pb-6">
+  <div>
     <div class="py-6 flex items-center justify-between" @click.prevent="open = !open">
       <span class="flex items-center gap-2">
         <h2 class="text-lg font-bold">
@@ -7,16 +7,27 @@
         </h2>
         <Icon v-if="confirmed" icon="mdi:check-decagram" width="16px" height="16px" />
       </span>
-      <Icon :icon="open ? 'mdi:chevron-down' : 'mdi:chevron-up'" width="16px" height="16px" />
+      <Icon :icon="open ? 'mdi:chevron-down' : 'mdi:chevron-right'" width="18px" height="18px" />
     </div>
-    <form v-if="open" @submit.prevent @input="emit('update', $event, guest.id)" class="flex flex-col gap-2">
-      <TextInput label="Name *" name="name" placeholder="First Last" :value="guest.data().name" class="mb-4 w-96" />
-      <TextInput label="Email *" name="email" placeholder="example@email.com" :value="guest.data().email" class="mb-4 w-96" />
-      <TextInput label="Flight info" name="flight" placeholder="AA 774 (You can add this later)" :value="guest.data().flight" class="mb-4 w-96" />
-      <TextInput label="Notes" name="notes" placeholder="Allergies, accessibility requirements, etc." :value="guest.data().notes" class="mb-4 w-96" />
-      <p v-if="confirmed">Confirmed!</p>    
-    </form>
-    <BaseButton v-if="removable" label="Remove guest" @click="emit('remove', guest.id)" @submit.prevent class="mt-2" />
+    <div v-if="open" class="pb-4">
+      <form @submit.prevent @input="emit('update', $event, guest.id)" class="flex flex-col gap-2">
+        <TextInput label="Name *" name="name" placeholder="First Last" :value="guest.data().name" class="mb-4 max-w-xs" />
+        <TextInput label="Email *" name="email" placeholder="example@email.com" :value="guest.data().email"
+          class="mb-4 max-w-xs" />
+        <TextInput label="Flight info" name="flight" placeholder="AA 774 (You can add this later)"
+          :value="guest.data().flight" class="mb-4 max-w-xs" />
+        <TextInput textarea label="Notes" name="notes" placeholder="Allergies, accessibility requirements, etc."
+          :value="guest.data().notes" class="mb-4 max-w-md" />
+        <div class="flex items-center">
+          <Icon :icon="confirmed ? 'mdi:check-decagram' : 'mdi:alert-circle-outline'" width="16px" height="16px" />
+          <span class="ml-2 text font-medium text-black/75">{{ confirmed ? 'Confirmed' : 'Unconfirmed' }}</span>
+        </div>
+        <p class="text-sm text-black/50">{{
+          confirmed ?
+          "Payment received, we'll see you in Scotland!" : "Confirmation will be complete after payment" }}</p>
+      </form>
+      <BaseButton v-if="removable" label="Remove guest" @click="emit('remove', guest.id)" @submit.prevent class="mt-4" />
+    </div>
   </div>
 </template>
 
@@ -44,6 +55,4 @@ const emit = defineEmits({
 const open = ref(true);
 
 </script>
-<style scoped>
-
-</style>
+<style scoped></style>

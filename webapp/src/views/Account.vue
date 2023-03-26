@@ -6,11 +6,11 @@
       class="h-screen w-1/2 lg:w-1/3 hidden md:block sticky top-0" 
       alt="Eric and Hannah looking very cool"
     />
-    <div class="text-left p-6 view-margin grow">
+    <div class="text-left p-6 view-margin view grow">
       <div class="text-center">
         <h1 class="font-display text-black mb-2 text-6xl mx-auto">Reservation</h1>
         <p class="font-sans text-sm text-black/50 max-w-lg mx-auto mb-6">In order to make your
-          trip as smooth as possible, please fill out info for you and any other guests in your party. You can update your info at any time.
+          trip as smooth as possible, please fill out info for you and any other guests in your party.
         </p>
       </div>
       <Divider />
@@ -101,7 +101,6 @@ function saveGuestInfo(guestId: string, field: string, value: string) {
   const DEBOUNCE_TIME = 1000;
   // If there is already a queued update for this guest, clear it
   if (queuedGuestUpdates[guestId]) {
-    console.log('clearing timeout');
     clearTimeout(queuedGuestUpdates[guestId].timeout);
   }
   queuedGuestUpdates[guestId] = {
@@ -171,5 +170,8 @@ async function onCheckout() {
 </script>
 
 <style scoped>
-
+.view {
+  max-width: 100%;
+  overflow-x: hidden;
+}
 </style>
