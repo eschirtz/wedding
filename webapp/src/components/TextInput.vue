@@ -2,7 +2,8 @@
   <div>
   <label :for="name" class="block text-sm font-medium text-black/50">{{ label }}</label>
   <div class="relative mt-1 rounded-md shadow-sm">
-    <input type="text" :placeholder="placeholder" :name="name" :value="value" class="block w-full rounded-md border border-black/25 py-2 px-3 focus:border-amber-500 focus:ring-amber-500 sm:text-sm placeholder-gray-400" />
+    <input v-if="!textarea" type="text" :placeholder="placeholder" :name="name" :value="value" class="block w-full rounded-md border border-black/25 py-2 px-3 focus:border-amber-500 focus:ring-amber-500 sm:text-sm placeholder-gray-400" />
+    <textarea v-else :placeholder="placeholder" :name="name" :value="value" rows="3" class="block w-full rounded-md border border-black/25 py-2 px-3 focus:border-amber-500 focus:ring-amber-500 sm:text-sm placeholder-gray-400" />
   </div>
 </div>  
 </template>
@@ -13,6 +14,7 @@
     value: String,
     name: String,
     placeholder: String,
+    textarea: Boolean,
   });
 
   defineEmits({
