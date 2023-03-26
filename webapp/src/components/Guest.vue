@@ -2,7 +2,7 @@
   <div class="px-4">
     <div class="py-6 flex items-center justify-between cursor-pointer" @click.prevent="open = !open">
       <span class="flex items-center gap-2">
-        <h2 class="text-lg font-bold">
+        <h2 class="text-xl font-bold">
           {{ guest.data().name || 'New guest' }}
         </h2>
         <Icon v-if="confirmed" icon="mdi:check-decagram" width="16px" height="16px" />

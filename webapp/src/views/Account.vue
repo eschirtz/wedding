@@ -16,15 +16,15 @@
           @remove="removeGuest" />
         <Divider />
       </template>
-      <div @click="addGuest()" class="py-6 px-4 flex items-center cursor-pointer">
+      <div @click="addGuest()" class="py-6 px-4 flex items-center cursor-pointer text-xl">
         <Icon icon="mdi:add" width="18px" height="18px" class="mr-4" /> Add another guest
       </div>
       <Divider />
       <div v-if="unconfirmedGuests" class="py-6 px-4">
-        <p class="mb-2">{{ unconfirmedGuests  }} guest{{ unconfirmedGuests > 1 ? 's' : '' }} (${{ (priceAmount / 100).toFixed(0) }} / guest)</p>
-        <p class="mb-2">Total: ${{ (checkoutPriceAmount / 100).toFixed(0) }}</p>
-        <BaseButton label="Continue to payment"
-          @click="onCheckout" />
+        <p class="mb-2 text-md">{{ unconfirmedGuests  }} guest{{ unconfirmedGuests > 1 ? 's' : '' }} (${{ (priceAmount / 100).toFixed(0) }} / guest)</p>
+        <p class="mb-4 text-md">Total: ${{ (checkoutPriceAmount / 100).toFixed(0) }}</p>
+        <BaseButton label="Continue to payment" class="mb-2" @click="onCheckout" />
+        <p class="text-sm text-black/50">Due to the logistical challenges of planning a wedding abroad, we won't be able to offer refunds after your payment has been submitted. Thank you for understanding!</p>
         <span v-if="checkoutLoading">Loading...</span>
       </div>
       <!-- <Divider /> -->
