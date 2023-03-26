@@ -26,7 +26,7 @@
           confirmed ?
           "Payment received, we'll see you in Scotland!" : "Confirmation will be complete after payment" }}</p>
       </form>
-      <BaseButton v-if="removable" label="Remove guest" @click="emit('remove', guest.id)" @submit.prevent class="mt-4" />
+      <BaseButton v-if="removable" label="Remove guest" icon="mdi:delete" @click="emit('remove', guest.id)" @submit.prevent class="mt-4" />
     </div>
   </div>
 </template>

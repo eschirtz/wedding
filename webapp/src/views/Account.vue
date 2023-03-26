@@ -20,14 +20,15 @@
         <Icon icon="mdi:add" width="18px" height="18px" class="mr-4" /> Add another guest
       </div>
       <Divider />
-      <div class="flex justify-between py-6 px-4">
-
-        <BaseButton v-if="unconfirmedGuests" :label="`RSVP · $${(checkoutPriceAmount / 100).toFixed(0)}`"
+      <div v-if="unconfirmedGuests" class="py-6 px-4">
+        <p class="mb-2">{{ unconfirmedGuests  }} guest{{ unconfirmedGuests > 1 ? 's' : '' }} (${{ (priceAmount / 100).toFixed(0) }} / guest)</p>
+        <p class="mb-2">Total: ${{ (checkoutPriceAmount / 100).toFixed(0) }}</p>
+        <BaseButton label="Continue to payment"
           @click="onCheckout" />
         <span v-if="checkoutLoading">Loading...</span>
       </div>
-      <Divider />
-      <BaseButton label="Logout" @click="logout" class="my-6" />
+      <!-- <Divider /> -->
+      <!-- <BaseButton label="Logout" @click="logout" class="my-6" /> -->
     </div>
   </div>
 </template>
