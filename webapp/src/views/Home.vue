@@ -132,3 +132,9 @@ onMounted(() => {
 });
 
 </script>
+
+<style scoped>
+section {
+  overflow-x: hidden;
+}
+</style>
