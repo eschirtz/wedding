@@ -5,46 +5,12 @@
       <h1 class="animate-in font-display text-stone-800 text-6xl md:text-8xl mb-2">Eric + Hannah</h1>
       <p class="animate-in font-sans text-xs md:text-base">April 19th-22nd, 2024 | Edinburgh, Scotland</p>
     </div>
-    <!-- Final image -->
-    <img 
-      v-if="loaded16w && loaded200w"
-      :src="photo2560w"
-      @load="onLoad"
-      class="transition-class scale-100 absolute w-screen h-screen z-0 object-cover"
-      :class="{['!scale-110']: !loadedFinal}"
-    />
-    <!-- 200w lazy -->
-    <Transition 
-      leave-active-class="transition-class"
-      leave-to-class="!opacity-0 !scale-100"
-    >
-      <img
-        v-if="loaded16w"
-        v-show="loaded200w && !loadedFinal" 
-        :src="photo200w"
-        @load="onLoad"
-        class="opacity-100 scale-105 absolute w-screen h-screen z-0 object-cover blur-md"      
-      />
-    </Transition>
-    <!-- 16w lazy -->
-    <Transition
-      enter-active-class="transition-class"
-      enter-from-class="!opacity-0"      
-      leave-active-class="transition-class"
-      leave-to-class="!opacity-0 !scale-105"
-    >
-      <img
-        v-show="loaded16w && !loaded200w"
-        :src="photo16w"
-        @load="onLoad"
-        class="opacity-100 scale-110 absolute w-screen h-screen z-0 object-cover"
-      />
-    </Transition>
+    <BaseImage :src="photo2560w" :lazy-src="photo16w" class="absolute w-screen h-screen z-0" style="min-height: 900px" />
   </section>
 </template>
 
 <script lang="ts" setup>import { ref } from 'vue';
-// const bucketURL = "https://firebasestorage.googleapis.com/v0/b/eric-and-hannah.appspot.com/o/"
+import BaseImage from '../components/BaseImage.vue';
   const bucketURL = 'https://storage.googleapis.com/eric-and-hannah.appspot.com/';
 
   const photoBaseURL = 'back-to-back/8993';  
@@ -54,22 +20,6 @@
   const photo600w = bucketURL + photoBaseURL + "_600x600.jpg";
   const photo200w = bucketURL + photoBaseURL + "_200x200.jpg";
   const photo16w = bucketURL + photoBaseURL + "_16x16.jpg";
-
-  const loaded16w = ref(false);
-  const left16w = ref(false);
-  
-  const loaded200w = ref(false);
-  const loadedFinal = ref(false)
-
-  function onLoad() {
-    if (!loaded16w.value) loaded16w.value = true;
-    else if (!loaded200w.value) loaded200w.value = true;
-    else loadedFinal.value = true;
-  }
-
-  function leave16w() {
-    left16w.value = true
-  }
   
 </script>
 
