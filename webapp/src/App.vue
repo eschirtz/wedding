@@ -9,6 +9,7 @@
       v-if="showNavigationBar"
       class="fixed top-0 left-0 right-0 z-40" 
       @toggle-menu="menu = !menu" 
+      @scroll-to-top="scrollToTop"
       :routes="routes"
       :user="currentUser" 
       :active-route="currentSection"
@@ -93,6 +94,13 @@ function updateCurrentSection(section: string) {
   if (route) {
     currentSection.value = route?.name;
   }  
+}
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
 }
 
 </script>

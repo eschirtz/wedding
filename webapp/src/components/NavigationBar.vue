@@ -13,11 +13,12 @@
     </RouterLink>    
     <Icon icon="mdi-light:menu" class="block md:hidden text-black" @click="$emit('toggle-menu')" />
     
-    <div class="grow pl-16">
+    <div class="grow px-auto">
       <h4 class="block md:hidden text-decorative font-display text-black/50 text-4xl text-center grow" v-if="showBackground">E+H</h4>
     </div>
 
-    <BaseButton :label="user ? 'Reservation' : 'RSVP'" to="account" />    
+    <BaseButton v-if="!showBackground" :label="user ? 'Reservation' : 'RSVP'" to="account" />
+    <Icon v-else icon="mdi-light:arrow-up" class="text-black" @click="$emit('scroll-to-top')" />
   </nav>
 </template>
 
