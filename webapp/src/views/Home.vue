@@ -1,10 +1,10 @@
 <template>
   <SectionHero id="home" class="h-screen"/>
   <section id="the-story" class="pt-40 pb-0 px-6 lg:px-16">
-    <SectionHeader title="The Story" class="mb-28 lg:mb-40"/>
+    <SectionHeader title="The Story" class="mb-12 lg:mb-24"/>
     <StoryChapter
       v-for="chapter in chapters" 
-      class="observable mb-32 lg:mb-64"
+      class="observable mb-24 lg:mb-32"
       :id="chapter.id"
       :active="visibleIds[chapter.id]"
       :title="chapter.title"
@@ -31,12 +31,12 @@
     <BaseImage class="col-span-6" src="edinburgh.jpg" lazy-src="edinburgh-lazy.jpg" />
   </div>
 
-  <section id="accomodation" class="px-6 mb-32 lg:mb-64">
-    <SectionHeader title="Accomodations" class="mb-8"/>    
+  <section id="accommodation" class="px-6 mb-32 lg:mb-64">
+    <SectionHeader title="Accommodations" class="mb-8"/>    
     <p class="max-w-3xl mx-auto font-body text-xl text-black/50">
       You'll be staying in the beautiful Dakota hotel, just a 5 min ride (or 30 min walk) from Dundas castle. With your reservation, we'll be taking care of booking your room. You'll also be in a neighborhood that has Thing one, Thing two and Thing Three. 
       <br/><br/>
-      The castle itself sleeps 40 and those rooms will primarily be for the bridal party and immediate family.
+      The castle itself sleeps a handfull of guests and those rooms will primarily be for the bridal party and immediate family.
     </p>    
   </section>
 
