@@ -1,11 +1,11 @@
 <template>
   <div class="flex">
     <BaseImage src="eric-hannah-vertical.jpg" lazy-src="eric-hannah-vertical-lazy.jpg"
-      class="h-screen w-1/2 lg:w-1/3 hidden md:block sticky top-0" alt="Eric and Hannah looking very cool" />
+      class="h-screen w-1/2 hidden md:block sticky top-0" alt="Eric and Hannah looking very cool" />
     <div class="text-left px-0 md:px-6 py-6 view-margin view grow">
-      <div class="text-center px-4">
-        <h1 class="font-display text-black mb-2 text-6xl mx-auto">Reservation</h1>
-        <p class="font-sans text-sm text-black/50 max-w-lg mx-auto mb-6">In order to make your
+      <div class="text-left px-4">
+        <h1 class="font-display text-black mb-2 text-6xl ">Reservation</h1>
+        <p class="font-sans text-sm text-black/50 mb-6">In order to make your
           trip as smooth as possible, please fill out info for you and any other guests in your party.
         </p>
       </div>
@@ -26,9 +26,8 @@
         <BaseButton label="Continue to payment" class="mb-2" @click="onCheckout" />
         <p class="text-sm text-black/50">Due to the logistical challenges of planning a wedding abroad, we won't be able to offer refunds after your payment has been submitted. Thank you for understanding!</p>
         <span v-if="checkoutLoading">Loading...</span>
+        <p class="text-sm mt-4">{{currentUser?.email}} · <span class="underline cursor-pointer" @click="logout">Sign out</span></p>
       </div>
-      <!-- <Divider /> -->
-      <!-- <BaseButton label="Logout" @click="logout" class="my-6" /> -->
     </div>
   </div>
 </template>
@@ -168,8 +167,4 @@ async function onCheckout() {
 </script>
 
 <style scoped>
-.view {
-  max-width: 100%;
-  overflow-x: hidden;
-}
 </style>
