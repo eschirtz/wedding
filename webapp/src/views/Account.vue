@@ -25,7 +25,12 @@
         <p class="mb-4 text-md">Total: ${{ (checkoutPriceAmount / 100).toFixed(0) }}</p>
         <BaseButton label="Continue to payment" class="mb-2" @click="onCheckout" />
         <p class="text-sm text-black/50">Due to the logistical challenges of planning a wedding abroad, we won't be able to offer refunds after your payment has been submitted. Thank you for understanding!</p>
-        <span v-if="checkoutLoading">Loading...</span>
+        <div class="loading-screen" v-if="checkoutLoading">
+          <div class="mb-4 animate-bounce">
+            <Icon icon="mdi:shield-lock" width="32px" height="32px"/>
+          </div>
+          <p>Redirecting to checkout...</p>
+        </div>
         <p class="text-sm mt-4">{{currentUser?.email}} · <span class="underline cursor-pointer" @click="logout">Sign out</span></p>
       </div>
     </div>
@@ -159,12 +164,36 @@ async function onCheckout() {
     await payForGuests(unconfirmedGuests.value);
   } catch (error) {
     alert(error);
-  } finally {
-    checkoutLoading.value = false;
   }
 }
 
 </script>
 
 <style scoped>
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  opacity: 0;
+  animation: fade-in .5s ease-in-out forwards;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
 </style>
