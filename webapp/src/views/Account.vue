@@ -24,7 +24,7 @@
         <p class="mb-2 text-md">{{ unconfirmedGuests  }} guest{{ unconfirmedGuests > 1 ? 's' : '' }} (${{ (priceAmount / 100).toFixed(0) }} / guest)</p>
         <p class="mb-4 text-md">Total: ${{ (checkoutPriceAmount / 100).toFixed(0) }}</p>
         <BaseButton label="Continue to payment" class="mb-2" @click="onCheckout" />
-        <p class="text-sm text-black/50">Due to the logistical challenges of planning a wedding abroad, we won't be able to offer refunds after your payment has been submitted. Thank you for understanding!</p>
+        <p class="text-sm text-black/50">Due to the logistical challenges of planning a wedding abroad, we won't be able to offer refunds after October 20th, 2023 (6 months before the ceremony). Thank you for understanding!</p>
         <div class="loading-screen" v-if="checkoutLoading">
           <div class="mb-4 animate-bounce">
             <Icon icon="mdi:shield-lock" width="32px" height="32px"/>
