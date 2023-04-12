@@ -33,8 +33,7 @@
     <SectionHeader title="Accommodations" class="mb-8" />
     <p class="max-w-3xl mx-auto font-body text-xl text-black/50">
       You'll be staying in the beautiful Dakota hotel, just a 5 min ride (or 30 min walk) from Dundas castle. With your
-      reservation, we'll be taking care of booking your room. You'll also be in a neighborhood that has Thing one, Thing
-      two and Thing Three.
+      reservation, we'll be taking care of booking your room. You'll be in a lovely neighbood with plenty of restaurants and things to do.
       <br /><br />
       The castle itself sleeps a handfull of guests and those rooms will primarily be for the bridal party and immediate
       family.
