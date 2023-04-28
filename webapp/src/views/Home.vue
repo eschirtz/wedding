@@ -10,37 +10,36 @@
     </StoryChapter>
   </section>
 
-  <section id="destination" class="px-6 mb-32 lg:mb-64">
+  <section id="destination" class="px-6 mb-32 lg:mb-48">
     <BaseImage src="dundas-sketch.png" class="w-full h-32 lg:h-64 mb-8 lg:mb-12" contain />
     <SectionHeader title="The Destination" class="mb-8" />
     <p class="max-w-3xl mx-auto font-body text-xl text-black/50">
       Traveling has been a passion of Eric and Hannah's since they met; it was only fitting that they have a destination
-      wedding. So why get married in a Scottish castle? No other reason than Hannah thought it would be cool to do.
+      wedding. They have never been to Scotland before, but they are excited to explore the country with you.
       <br /><br />
-      Dundas Castle is located just 15 minutes from the Edinburgh airport. This three day party will take place on the
-      beautiful grounds of Dundas, complete with tossing the highland games, pin-the-kilt on the sheep, and certainly some
-      drinking.
+      This four-day, three-night celebration will take place on the
+      beautiful grounds of Dundas Castle, which is located just 15 minutes from the Edinburgh airport. Our weekend will have tons of events and activities planned for you, including some traditional Scottish games.
     </p>
   </section>
 
-  <div class="grid grid-cols-6 grid-rows-2 h-96 md:h-screen mb-32 lg:mb-64">
+  <div class="grid grid-cols-6 grid-rows-2 h-96 md:h-screen mb-32 lg:mb-48">
     <BaseImage class="col-span-3 lg:col-span-3" src="dundas-color.jpg" lazy-src="dundas-color-lazy.jpg" />
     <BaseImage class="col-span-3 lg:col-span-3" src="dundas-interior.jpg" lazy-src="dundas-interior-lazy.jpg" />
     <BaseImage class="col-span-6" src="edinburgh.jpg" lazy-src="edinburgh-lazy.jpg" />
   </div>
 
-  <section id="accommodation" class="px-6 mb-32 lg:mb-64">
+  <section id="accommodation" class="px-6 mb-32 lg:mb-48">
     <SectionHeader title="Accommodations" class="mb-8" />
     <p class="max-w-3xl mx-auto font-body text-xl text-black/50">
-      You'll be staying in the beautiful Dakota hotel, just a 5 min ride (or 30 min walk) from Dundas castle. With your
+      You'll be staying in the beautiful Dakota hotel, just a 5 minute car ride from Dundas Castle. With your
       reservation, we'll be taking care of booking your room. You'll be in a lovely neighbood with plenty of restaurants and things to do.
       <br /><br />
-      The castle itself sleeps a handfull of guests and those rooms will primarily be for the bridal party and immediate
+      The castle itself sleeps a handful of guests and those rooms will primarily be for the bridal party and immediate
       family.
     </p>
   </section>
 
-  <div class="grid grid-cols-6 grid-rows-2 h-96 md:h-screen mb-32 lg:mb-64">
+  <div class="grid grid-cols-6 grid-rows-2 h-96 md:h-screen mb-32 lg:mb-48">
     <BaseImage class="col-span-4 lg:col-span-3" src="dakota-1.jpg" lazy-src="dakota-1-lazy.jpg" />
     <BaseImage class="col-span-2 lg:col-span-3" src="dakota-2.jpg" lazy-src="dakota-2-lazy.jpg" />
     <BaseImage class="col-span-6" src="bar.jpg" lazy-src="bar-lazy.jpg" />
@@ -49,7 +48,7 @@
   <section id="faq" class="mb-64 px-6 lg:px-16 max-w-3xl mx-auto">
     <SectionHeader title="Questions?" class="mb-24" />
     <div class="text-left mb-12" v-for="qa in faq">
-      <h3 class="text-xl font-bold mb-2">
+      <h3 class="font-display text-4xl mb-2">
         {{ qa.q }}
       </h3>
       <p class="text-lg font-body text-black/50">
@@ -145,28 +144,28 @@ onMounted(() => {
 
 const faq = [
   {
-    q: 'What should I wear?',
-    a: `We're going to be in Scotland, so you should wear something that's comfortable and appropriate for the weather. We'll be having a few events that will be outdoors, so you'll want to dress accordingly.`
+    q: 'What is the dress code?',
+    a: `We would love to see our closest family and friends dress up with us! We request that you dress like you're in a fairytale castle. In other words, formal attire is appropriate for the wedding itself. Otherwise you should wear something that's comfortable and appropriate for the weather. Hopefully we'll be having a few events outdoors (pending cooperative weather), so you'll want to dress accordingly.`
   },
   {
-    q: `What will all of this cost?`,
-    a: "We're asking each guest to pay $750 for the long weekend. This will cover your accommodations, food, and drinks. The primary expense will likey be flights to and from Scotland, but we'll be happy to help you find the best deals."
+    q: `How much should I expect to spend?`,
+    a: "We're asking each guest to pay $750 for the long weekend. This will cover all four days/three nights of your food, drinks, and accommodations. This does not include flights to and from Scotland, but we'll be happy to help you find the best deals."
   },
   {
     q: `What if I can't make it?`,
-    a: "We understand that not everyone will be able to make it to Scotland, but we'd love to have you there if you can. If you can't make it, we're having a reception in Wisconsin on Sept 9th of this year. There will be dancing, food, and drinks, so we hope you can make it either way."
+    a: "We understand that not everyone will be able to make it to Scotland, we're also having a reception in Wisconsin on September 9th, 2023. We'd love to see you there!"
   },
   {
     q: 'Should I bring a gift?',
-    a: 'We do not expect gifts. We know that this is a big expense for everyone, so we would rather you spend your money on the trip than on a gift!'
+    a: 'No. We do not expect gifts. We know that this is a big expense for everyone; your presence in Scotland is gift enough!'
   },
   {
     q: "What airport should I fly into?",
-    a: "We'll be flying into Edinburgh Airport (EDI). We'll be happy to help you find the best deals on flights."
+    a: "We'll be flying into Edinburgh Airport (EDI). We'll be happy to help you find the best deals on flights. For purposes of booking your flights, the festivities will begin shortly after noon on Friday, April 19th and will be wrapped up late morning on Monday, April 22nd. If possible, we recommend arriving on Thursday, April 18th to give yourself a day to recover from jet lag and explore Edinburgh, although we won't be able to cover your accommodations for that night."
   },
   {
     q: "Ok, I'm in! How do I RSVP?",
-    a: "We've custom made this website so that we can keep you updated as plans get more solidified. For now, just click the RSVP button below and fill out info for you and any guests you're bringing. We'll consider you RSVP'd once you've submitted the $750 deposit per guest. But please take your time and reach out to us directly if you have any questions."
+    a: "We've custom-made this website so that we can keep you updated as plans get more solidified. For now, just click the RSVP button below and fill out info for you and any other guests in your party. We'll consider you RSVP'd once you've paid. Please take your time and reach out to us directly if you have any questions."
   }
 ]
 
