@@ -57,7 +57,7 @@
       </p>
     </div>
     <p>
-    <BaseButton label="RSVP" to="account"  class="w-max"/>
+    <BaseButton label="RSVP" to="account"  class="w-max mx-auto"/>
   </p>
   </section>
 </template>

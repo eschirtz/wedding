@@ -2,6 +2,7 @@ import {createRouter, createWebHistory, NavigationGuardNext, RouteLocationNormal
 import Home from '../views/Home.vue';
 import Account from '../views/Account.vue';
 import Auth from '../views/Auth.vue';
+import Decline from '../views/Decline.vue';
 import { currentUser } from '../plugins/firebase';
 
 function accountGuard(
@@ -20,7 +21,8 @@ function accountGuard(
 const routes: RouteRecordRaw[] = [
   { path: '/', component: Home },
   { path: '/account', component: Account, beforeEnter: accountGuard },
-  { path: '/auth', component: Auth }
+  { path: '/auth', component: Auth },
+  { path: '/rsvp/decline', component: Decline }
 ]
 
 const router = createRouter({
