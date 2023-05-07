@@ -18,7 +18,8 @@
       wedding. They have never been to Scotland before, but they are excited to explore the country with you.
       <br /><br />
       This four-day, three-night celebration will take place on the
-      beautiful grounds of Dundas Castle, which is located just 15 minutes from the Edinburgh airport. Our weekend will have tons of events and activities planned for you, including some traditional Scottish games.
+      beautiful grounds of Dundas Castle, which is located just 15 minutes from the Edinburgh airport. Our weekend will
+      have tons of events and activities planned for you, including some traditional Scottish games.
     </p>
   </section>
 
@@ -32,7 +33,8 @@
     <SectionHeader title="Accommodations" class="mb-8" />
     <p class="max-w-3xl mx-auto font-body text-xl text-black/50">
       You'll be staying in the beautiful Dakota hotel, just a 5 minute car ride from Dundas Castle. With your
-      reservation, we'll be taking care of booking your room. You'll be in a lovely neighbood with plenty of restaurants and things to do.
+      reservation, we'll be taking care of booking your room. You'll be in a lovely neighbood with plenty of restaurants
+      and things to do.
       <br /><br />
       The castle itself sleeps a handful of guests and those rooms will primarily be for the bridal party and immediate
       family.
@@ -56,8 +58,8 @@
       </p>
     </div>
     <p>
-    <BaseButton label="RSVP" to="account"  class="w-max mx-auto"/>
-  </p>
+      <BaseButton label="RSVP" to="account" class="w-max mx-auto" />
+    </p>
   </section>
 </template>
 
@@ -150,6 +152,10 @@ const faq = [
   {
     q: `How much should I expect to spend?`,
     a: "We're asking each guest to pay $750 for the long weekend. This will cover all four days/three nights of your food, drinks, and accommodations. This does not include flights to and from Scotland, but we'll be happy to help you find the best deals."
+  },
+  {
+    q: "Is there a reduced cost for young children?",
+    a: "Yes. Please reach out to Eric or Hannah prior to RSVP'ing for a personalized “coupon code” for all of the young children in your family."
   },
   {
     q: `What if I can't make it?`,
