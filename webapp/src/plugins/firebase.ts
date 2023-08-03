@@ -64,6 +64,7 @@ export async function payForGuests(numberOfGuests: number) {
       quantity: numberOfGuests,
       success_url: window.location.href,
       cancel_url: window.location.href,
+      allow_promotion_codes: true
     });
   return new Promise<void>((resolve, reject) => {
     docRef.onSnapshot(snap => {
